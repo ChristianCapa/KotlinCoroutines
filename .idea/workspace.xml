@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/Coroutines.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bBRIOPYKWaz3xt12atZnOAefHb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="14" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Git\KotlinCoroutines" />
+      <recent name="E:\Git\KotlinCoroutines\KotlinCoroutinesPrototype" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Kotlin.CoroutinesKt">
+    <configuration name="CoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="Coroutines" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="CoroutinesKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartingCoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-14.0.1" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="StartingCoroutinesKt" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <module name="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.CoroutinesKt" />
+        <item itemvalue="Kotlin.StartingCoroutinesKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="" />
+      <created>1588103419384</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588103419384</updated>
+      <workItem from="1588103421246" duration="3360000" />
+      <workItem from="1588107728821" duration="693000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="94" key="#Project_Structure" timestamp="1588108236921">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588108236921" />
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588104817006">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588104817006" />
+    <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588105076312">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588105076312" />
+    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1588108145490">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588108145490" />
+    <state x="326" y="264" key="FileChooserDialogImpl" timestamp="1588108376855">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588108376855" />
+    <state x="31" y="119" key="SettingsEditor" timestamp="1588108383305">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="31" y="119" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588108383305" />
+    <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1588108129691">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1588108129691" />
+    <state x="154" y="196" key="new project wizard" timestamp="1588108417384">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="154" y="196" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588108417384" />
+  </component>
+</project>
