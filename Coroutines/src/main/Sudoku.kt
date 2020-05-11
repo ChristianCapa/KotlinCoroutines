@@ -15,13 +15,19 @@ class Sudoku() {
     }
 
 
+
+
     fun setField(xPos: Int, yPos: Int, value: Int) {
         sudoku[xPos][yPos] = value
     }
 
+
+
     fun getField(xPos: Int, yPos: Int): Int {
         return sudoku[xPos][yPos]
     }
+
+
 
     fun printSudoku() {
         for (array in sudoku) {
@@ -32,6 +38,8 @@ class Sudoku() {
         }
     }
 
+
+
     fun iterateFields() {
         for (i in 1..9) {
             for (j in 1..9) {
@@ -40,12 +48,12 @@ class Sudoku() {
         }
     }
 
+
+
     private fun checkRows(xPos: Int, yPos: Int) {
         println("\n\nchecking rows started")
         val xRow: Array<Int> = Array<Int>(9) { 0 }
         val yRow: Array<Int> = Array<Int>(9) { 0 }
-        var possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
-        var possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
 
         for (posY in 1..9) {
             yRow[(posY - 1)] = getField(xPos, (posY - 1))
@@ -54,6 +62,9 @@ class Sudoku() {
             xRow[(posX - 1)] = getField((posX - 1), yPos)
         }
 
+
+        var possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
+        var possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
         printArray("yRow", null, yRow)
         printArray("xRow", null, xRow)
         printArray("possibleEntriesY", possibleEntriesY, null)
@@ -68,7 +79,7 @@ class Sudoku() {
         for (i in 1..9) {
             for (j in 1..9)
                 if (i == row[(j - 1)]) {
-                    possibleEntries.add(row[(i - 1)])
+                    possibleEntries.add(row[(j - 1)])
                 }
         }
         return possibleEntries
