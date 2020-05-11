@@ -20,7 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Coroutines/src/Coroutines.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/Sudoku.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/KotlinCoroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KotlinCoroutines.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/Coroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/Coroutines.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +48,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Kotlin File" />
       </list>
     </option>
@@ -66,10 +73,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="14" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -77,7 +84,7 @@
       <recent name="E:\Git\KotlinCoroutines\KotlinCoroutinesPrototype" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.CoroutinesKt">
+  <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="CoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="Coroutines" />
       <option name="VM_PARAMETERS" />
@@ -87,6 +94,19 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="CoroutinesKt" />
       <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="Coroutines" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-14.0.1" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="WORKING_DIRECTORY" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -104,8 +124,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Kotlin.CoroutinesKt" />
+      <item itemvalue="Kotlin.MainKt" />
+      <item itemvalue="Kotlin.StartingCoroutinesKt" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Kotlin.CoroutinesKt" />
         <item itemvalue="Kotlin.StartingCoroutinesKt" />
       </list>
@@ -123,6 +149,10 @@
       <updated>1588103419384</updated>
       <workItem from="1588103421246" duration="3360000" />
       <workItem from="1588107728821" duration="693000" />
+      <workItem from="1588692966838" duration="2566000" />
+      <workItem from="1588698614991" duration="7945000" />
+      <workItem from="1588750097310" duration="6149000" />
+      <workItem from="1588803855874" duration="621000" />
     </task>
     <servers />
   </component>
@@ -142,30 +172,46 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="0" y="94" key="#Project_Structure" timestamp="1588108236921">
+    <state x="0" y="94" key="#Project_Structure" timestamp="1588698050680">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588108236921" />
-    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588104817006">
+    <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588698050680" />
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588698157862">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588104817006" />
+    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588698157862" />
     <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588105076312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588105076312" />
-    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1588108145490">
+    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1588698490687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588108145490" />
-    <state x="326" y="264" key="FileChooserDialogImpl" timestamp="1588108376855">
+    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588698490687" />
+    <state x="326" y="264" key="FileChooserDialogImpl" timestamp="1588698153503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588108376855" />
-    <state x="31" y="119" key="SettingsEditor" timestamp="1588108383305">
+    <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588698153503" />
+    <state width="914" height="206" key="GridCell.Tab.0.bottom" timestamp="1588766315667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="31" y="119" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588108383305" />
+    <state width="914" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315667" />
+    <state width="914" height="206" key="GridCell.Tab.0.center" timestamp="1588766315666">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315666" />
+    <state width="914" height="206" key="GridCell.Tab.0.left" timestamp="1588766315666">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315666" />
+    <state width="914" height="206" key="GridCell.Tab.0.right" timestamp="1588766315667">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315667" />
+    <state x="673" y="131" key="SettingsEditor" timestamp="1588698577274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="673" y="131" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588698577274" />
     <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1588108129691">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -174,5 +220,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="154" y="196" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588108417384" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1588698448920">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588698448920" />
   </component>
 </project>
