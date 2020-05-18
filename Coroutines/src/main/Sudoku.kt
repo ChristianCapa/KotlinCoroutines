@@ -39,14 +39,16 @@ class Sudoku() {
     fun iterateFields() {
         for (i in 1..9) {
             for (j in 1..9) {
-                checkRows(i - 1, j - 1)
+                if (getField(i - 1, j - 1) == 0) {
+                    checkRows(i - 1, j - 1)
+                }
             }
         }
     }
 
 
     private fun checkRows(xPos: Int, yPos: Int) {
-        println("\n\nchecking rows started")
+        //println("\n\nchecking rows started")
         val xRow: Array<Int> = Array<Int>(9) { 0 }
         val yRow: Array<Int> = Array<Int>(9) { 0 }
 
@@ -60,12 +62,14 @@ class Sudoku() {
 
         var possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
         var possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
+        var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
 
-
-        TesterClass.printArray("yRow", null, yRow)
-        TesterClass.printArray("xRow", null, xRow)
-        TesterClass.printArray("possibleEntriesY", possibleEntriesY, null)
-        TesterClass.printArray("possibleEntriesX", possibleEntriesX, null)
+        println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
+        TesterClass.printObject("yRow", null, yRow, null)
+        TesterClass.printObject("xRow", null, xRow, null)
+        TesterClass.printObject("possibleEntriesY", possibleEntriesY, null, null)
+        TesterClass.printObject("possibleEntriesX", possibleEntriesX, null, null)
+        TesterClass.printObject("possibleEntriesAtPos", null, null, possibleEntriesAtPos)
     }
 
 
