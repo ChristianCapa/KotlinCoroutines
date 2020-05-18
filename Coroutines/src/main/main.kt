@@ -38,9 +38,12 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 9, 9)
 
 
-    sudoku.printSudoku()
-    val coordinate = sudoku.getField(1, 1)
     sudoku.iterateFields()
+    println("\n\n")
+    sudoku.printSudoku()
+
+
+
 
     //exampleLaunchCoroutinesScope()
 }

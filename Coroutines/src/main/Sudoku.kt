@@ -4,7 +4,6 @@ class Sudoku() {
 
     private var sudoku = arrayOf<Array<Int>>()
 
-
     init {
         for (i in 1..9) {
             var array = arrayOf<Int>()
@@ -48,7 +47,6 @@ class Sudoku() {
 
 
     private fun checkRows(xPos: Int, yPos: Int) {
-        //println("\n\nchecking rows started")
         val xRow: Array<Int> = Array<Int>(9) { 0 }
         val yRow: Array<Int> = Array<Int>(9) { 0 }
 
@@ -58,7 +56,6 @@ class Sudoku() {
         for (posX in 1..9) {
             xRow[(posX - 1)] = getField((posX - 1), yPos)
         }
-
 
         var possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
         var possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
@@ -70,6 +67,8 @@ class Sudoku() {
         TesterClass.printObject("possibleEntriesY", possibleEntriesY, null, null)
         TesterClass.printObject("possibleEntriesX", possibleEntriesX, null, null)
         TesterClass.printObject("possibleEntriesAtPos", null, null, possibleEntriesAtPos)
+        setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
+        sortPossibilitiesByAmount(possibleEntriesAtPos)
     }
 
 
@@ -93,23 +92,15 @@ class Sudoku() {
     }
 
 
-    fun setPossibleEntries(possibleEntriesX: ArrayList<Int>, possibleEntriesY: ArrayList<Int>) {
-        if (possibleEntriesX.size <= 2 && possibleEntriesY.size <= 2) {
-            for (i in 1..possibleEntriesX.size) {
-                for (j in 1..possibleEntriesY.size) {
-                    if (possibleEntriesX[i - 1] == possibleEntriesY[j - 1]) {
-
-                    }
-                }
-            }
-        } else {
-            sortPossibilitiesByFrequency(possibleEntriesX, possibleEntriesY)
+    private fun setPossibleEntries(possibleEntriesAtPos: Set<Int>, xPos: Int, yPos: Int) {
+        if (possibleEntriesAtPos.size == 1) {
+            setField(xPos + 1, yPos + 1, possibleEntriesAtPos.elementAt(0))
         }
     }
 
 
-    fun sortPossibilitiesByFrequency(possibleEntriesX: ArrayList<Int>, possibleEntriesY: ArrayList<Int>) {
-        println("Not implemented yet!")
+    fun sortPossibilitiesByAmount(possibleEntriesAtPos: Set<Int>) {
+        println("\n\nsortPossibilitiesByFrequency is not implemented yet!")
     }
 
 }
