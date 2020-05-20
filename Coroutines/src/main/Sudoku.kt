@@ -3,6 +3,7 @@ package main
 class Sudoku() {
 
     private var sudoku = arrayOf<Array<Int>>()
+    private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = HashMap<ArrayList<Int>, Set<Int>>()
 
     init {
         for (i in 1..9) {
@@ -12,6 +13,11 @@ class Sudoku() {
             }
             sudoku += array
         }
+    }
+
+
+    fun getMapOfPosibilities(): MutableMap<ArrayList<Int>, Set<Int>> {
+        return mapOfPossibleEntries
     }
 
 
@@ -68,7 +74,7 @@ class Sudoku() {
         TesterClass.printObject("possibleEntriesX", possibleEntriesX, null, null)
         TesterClass.printObject("possibleEntriesAtPos", null, null, possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
-        sortPossibilitiesByAmount(possibleEntriesAtPos)
+
     }
 
 
@@ -96,13 +102,16 @@ class Sudoku() {
         if (possibleEntriesAtPos.size == 1) {
             setField(xPos + 1, yPos + 1, possibleEntriesAtPos.elementAt(0))
         }
+        else {
+            sortPossibilitiesByAmount(possibleEntriesAtPos, xPos, yPos)
+        }
     }
 
 
-    fun sortPossibilitiesByAmount(possibleEntriesAtPos: Set<Int>) {
-        println("\n\nsortPossibilitiesByFrequency is not implemented yet!")
+    private fun sortPossibilitiesByAmount(possibleEntriesAtPos: Set<Int>, xPos: Int, yPos: Int) {
+        mapOfPossibleEntries[arrayListOf(xPos + 1, yPos + 1)] = possibleEntriesAtPos
+        mapOfPossibleEntries = mapOfPossibleEntries.toList().sortedBy { (_, value) -> value.size}.toMap().toMutableMap()
     }
-
 }
 
 

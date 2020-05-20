@@ -5,7 +5,9 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 fun main(args: Array<String>) {
+
     val sudoku = Sudoku()
+
     sudoku.setField(1, 1, 5)
     sudoku.setField(1, 2, 6)
     sudoku.setField(1, 4, 8)
@@ -42,7 +44,8 @@ fun main(args: Array<String>) {
     println("\n\n")
     sudoku.printSudoku()
 
-
+    val dispatcher = Dispatcher(sudoku.getMapOfPosibilities())
+    dispatcher.printMap()
 
 
     //exampleLaunchCoroutinesScope()
