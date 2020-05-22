@@ -4,6 +4,18 @@ class Sudoku() {
 
     private var sudoku = arrayOf<Array<Int>>()
     private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = HashMap<ArrayList<Int>, Set<Int>>()
+    private var firstNinth: ArrayList<Int> = arrayListOf()
+    private var secondNinth: ArrayList<Int> = arrayListOf()
+    private var thirdNinth: ArrayList<Int> = arrayListOf()
+    private var fourthNinth: ArrayList<Int> = arrayListOf()
+    private var fifthNinth: ArrayList<Int> = arrayListOf()
+    private var sixthNinth: ArrayList<Int> = arrayListOf()
+    private var seventhNinth: ArrayList<Int> = arrayListOf()
+    private var eighthNinth: ArrayList<Int> = arrayListOf()
+    private var ninthNinth: ArrayList<Int> = arrayListOf()
+
+
+
 
     init {
         for (i in 1..9) {
@@ -16,13 +28,75 @@ class Sudoku() {
     }
 
 
-    fun getMapOfPosibilities(): MutableMap<ArrayList<Int>, Set<Int>> {
+    fun getMapOfPossibilities(): MutableMap<ArrayList<Int>, Set<Int>> {
         return mapOfPossibleEntries
     }
 
 
     fun setField(xPos: Int, yPos: Int, value: Int) {
         sudoku[yPos - 1][xPos - 1] = value
+        defineXNinth(xPos, yPos, value)
+    }
+
+
+    private fun defineXNinth(xPos: Int, yPos: Int, value: Int) {
+        when {
+            xPos <= 3 -> {
+                defineYNinth(1, yPos, value)
+            }
+            xPos in 3..6 -> {
+                defineYNinth(2, yPos, value)
+            }
+            else -> {
+                defineYNinth(3, yPos, value)
+            }
+        }
+    }
+
+
+    private fun defineYNinth(xNinth: Int, yPos: Int, value: Int) {
+        when {
+            yPos <= 3 -> {
+                setNinth(xNinth, 1, value)
+            }
+            yPos in  3..6 -> {
+                setNinth(xNinth, 2, value)
+            }
+            else -> {
+                setNinth(xNinth, 3, value)
+            }
+        }
+    }
+
+
+    private fun setNinth(xNinth: Int, yNinth: Int, value: Int) {
+        if (xNinth == 1 && yNinth == 1) {
+            firstNinth.add(value)
+        }
+        if (xNinth == 1 && yNinth == 2) {
+            secondNinth.add(value)
+        }
+        if (xNinth == 1 && yNinth == 3) {
+            thirdNinth.add(value)
+        }
+        if (xNinth == 2 && yNinth == 1) {
+            fourthNinth.add(value)
+        }
+        if (xNinth == 2 && yNinth == 2) {
+            fifthNinth.add(value)
+        }
+        if (xNinth == 2 && yNinth == 3) {
+            sixthNinth.add(value)
+        }
+        if (xNinth == 3 && yNinth == 1) {
+            seventhNinth.add(value)
+        }
+        if (xNinth == 3 && yNinth == 2) {
+            eighthNinth.add(value)
+        }
+        if (xNinth == 3 && yNinth == 3) {
+            ninthNinth.add(value)
+        }
     }
 
 
@@ -68,11 +142,11 @@ class Sudoku() {
         var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
 
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
-        TesterClass.printObject("yRow", null, yRow, null)
-        TesterClass.printObject("xRow", null, xRow, null)
-        TesterClass.printObject("possibleEntriesY", possibleEntriesY, null, null)
-        TesterClass.printObject("possibleEntriesX", possibleEntriesX, null, null)
-        TesterClass.printObject("possibleEntriesAtPos", null, null, possibleEntriesAtPos)
+        Helper.printObject("yRow", null, yRow, null)
+        Helper.printObject("xRow", null, xRow, null)
+        Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
+        Helper.printObject("possibleEntriesX", arrayList = possibleEntriesX)
+        Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
 
     }
@@ -105,6 +179,15 @@ class Sudoku() {
         else {
             sortPossibilitiesByAmount(possibleEntriesAtPos, xPos, yPos)
         }
+        Helper.printObject("\nfirstNinth", arrayList = firstNinth)
+        Helper.printObject("secondNinth", arrayList = secondNinth)
+        Helper.printObject("thirdNinth", arrayList = thirdNinth)
+        Helper.printObject("fourthNinth", arrayList = fourthNinth)
+        Helper.printObject("fifthNinth", arrayList = fifthNinth)
+        Helper.printObject("sixthNinth", arrayList = sixthNinth)
+        Helper.printObject("seventhNinth", arrayList = seventhNinth)
+        Helper.printObject("eighthNinth", arrayList = eighthNinth)
+        Helper.printObject("ninthNinth", arrayList = ninthNinth)
     }
 
 

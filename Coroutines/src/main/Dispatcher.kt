@@ -10,6 +10,14 @@ class Dispatcher(map: MutableMap<ArrayList<Int>, Set<Int>>) {
 
     fun printMap() {
         println(mapOfPossibleEntries.toString())
+        recursiveMeasurement()
+    }
+
+    fun recursiveMeasurement() {
+        for(pos in mapOfPossibleEntries) {
+            println("\nPosition: " + pos)
+
+        }
     }
 
 }

@@ -1,9 +1,9 @@
 package main
 
 
-object TesterClass {
+object Helper {
 
-    fun printObject(name: String, arrayList: ArrayList<Int>?, array: Array<Int>?, set: Set<Int>?) {
+    fun printObject(name: String, arrayList: ArrayList<Int>? = null, array: Array<Int>? = null, arrayList2D: ArrayList<ArrayList<Int>>? = null, set: Set<Int>? = null) {
         println("\n$name")
         when {
             arrayList != null -> {
@@ -16,13 +16,23 @@ object TesterClass {
                     print("$value ")
                 }
             }
+
+            arrayList2D != null -> {
+                for (array in arrayList2D) {
+                    for (value in array) {
+                        print("$value ")
+                    }
+                    println()
+                }
+            }
+
             set != null -> {
                 for (value in set) {
                     print("$value ")
                 }
             }
             else -> {
-                println("no ArrayList<T>() or Array<T> entered")
+                println("no ArrayList<Int>(), Array<Int> or Set<Int> entered")
             }
         }
     }
