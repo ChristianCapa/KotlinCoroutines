@@ -1,6 +1,6 @@
 package main
 
-class Sudoku() {
+class Sudoku {
 
     private var sudoku = arrayOf<Array<Int>>()
     private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = HashMap<ArrayList<Int>, Set<Int>>()
@@ -13,8 +13,6 @@ class Sudoku() {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
-
-
 
 
     init {
@@ -34,68 +32,41 @@ class Sudoku() {
 
 
     fun setField(xPos: Int, yPos: Int, value: Int) {
-        sudoku[yPos - 1][xPos - 1] = value
-        defineXNinth(xPos, yPos, value)
+        sudoku[xPos - 1][yPos - 1] = value
+        getNinth(xPos, yPos)?.add(value)
     }
 
 
-    private fun defineXNinth(xPos: Int, yPos: Int, value: Int) {
+    private fun getNinth(xPos: Int, yPos: Int): ArrayList<Int>? {
         when {
-            xPos <= 3 -> {
-                defineYNinth(1, yPos, value)
+            xPos <= 3 && yPos <= 3 -> {
+                return firstNinth
             }
-            xPos in 3..6 -> {
-                defineYNinth(2, yPos, value)
+            xPos in 4..6 && yPos <= 3 -> {
+                return secondNinth
             }
-            else -> {
-                defineYNinth(3, yPos, value)
+            xPos in 7..9 && yPos <= 3 -> {
+                return thirdNinth
             }
-        }
-    }
-
-
-    private fun defineYNinth(xNinth: Int, yPos: Int, value: Int) {
-        when {
-            yPos <= 3 -> {
-                setNinth(xNinth, 1, value)
+            xPos <= 3 && yPos in 4..6 -> {
+                return fourthNinth
             }
-            yPos in  3..6 -> {
-                setNinth(xNinth, 2, value)
+            xPos in 4..6 && yPos in 4..6 -> {
+                return fifthNinth
             }
-            else -> {
-                setNinth(xNinth, 3, value)
+            xPos in 7..9 && yPos in 4..6 -> {
+                return sixthNinth
             }
-        }
-    }
-
-
-    private fun setNinth(xNinth: Int, yNinth: Int, value: Int) {
-        if (xNinth == 1 && yNinth == 1) {
-            firstNinth.add(value)
-        }
-        if (xNinth == 1 && yNinth == 2) {
-            secondNinth.add(value)
-        }
-        if (xNinth == 1 && yNinth == 3) {
-            thirdNinth.add(value)
-        }
-        if (xNinth == 2 && yNinth == 1) {
-            fourthNinth.add(value)
-        }
-        if (xNinth == 2 && yNinth == 2) {
-            fifthNinth.add(value)
-        }
-        if (xNinth == 2 && yNinth == 3) {
-            sixthNinth.add(value)
-        }
-        if (xNinth == 3 && yNinth == 1) {
-            seventhNinth.add(value)
-        }
-        if (xNinth == 3 && yNinth == 2) {
-            eighthNinth.add(value)
-        }
-        if (xNinth == 3 && yNinth == 3) {
-            ninthNinth.add(value)
+            xPos <= 3 && yPos in 7..9 -> {
+                return seventhNinth
+            }
+            xPos in 4..6 && yPos in 7..9 -> {
+                return eighthNinth
+            }
+            xPos in 7..9 && yPos in 7..9 -> {
+                return ninthNinth
+            }
+            else -> return null
         }
     }
 
@@ -106,20 +77,22 @@ class Sudoku() {
 
 
     fun printSudoku() {
-        for (array in sudoku) {
-            for (value in array) {
-                print("$value ")
+        for (y in 1..9) {
+            for (x in 1..9) {
+                print("${getField(x - 1, y - 1)} ")
+                if (x == 9) {
+                    println()
+                }
             }
-            println()
         }
     }
 
 
     fun iterateFields() {
-        for (i in 1..9) {
-            for (j in 1..9) {
-                if (getField(i - 1, j - 1) == 0) {
-                    checkRows(i - 1, j - 1)
+        for (y in 1..9) {
+            for (x in 1..9) {
+                if (getField(x - 1, y - 1) == 0) {
+                    checkRows(x - 1, y - 1)
                 }
             }
         }
@@ -130,22 +103,25 @@ class Sudoku() {
         val xRow: Array<Int> = Array<Int>(9) { 0 }
         val yRow: Array<Int> = Array<Int>(9) { 0 }
 
-        for (posY in 1..9) {
-            yRow[(posY - 1)] = getField(xPos, (posY - 1))
-        }
         for (posX in 1..9) {
             xRow[(posX - 1)] = getField((posX - 1), yPos)
         }
+        for (posY in 1..9) {
+            yRow[(posY - 1)] = getField(xPos, (posY - 1))
+        }
 
-        var possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
-        var possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
+        val possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
+        val possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
         var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
+        val ninth = getNinth(xPos, yPos)
+        //possibleEntriesAtPos = ninth?.let { possibleEntriesAtPos.toIntArray().intersect(it) }!!
+
 
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
-        Helper.printObject("yRow", null, yRow, null)
         Helper.printObject("xRow", null, xRow, null)
-        Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
+        Helper.printObject("yRow", null, yRow, null)
         Helper.printObject("possibleEntriesX", arrayList = possibleEntriesX)
+        Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
         Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
 
@@ -153,8 +129,8 @@ class Sudoku() {
 
 
     private fun getPossibleEntries(row: Array<Int>): ArrayList<Int> {
-        var possibleEntries: ArrayList<Int> = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
-        var counter: Int = 1
+        val possibleEntries: ArrayList<Int> = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        var counter = 1
         for (i in 1..9) {
             for (j in 1..9) {
                 if (i == row[(j - 1)]) {
@@ -175,25 +151,14 @@ class Sudoku() {
     private fun setPossibleEntries(possibleEntriesAtPos: Set<Int>, xPos: Int, yPos: Int) {
         if (possibleEntriesAtPos.size == 1) {
             setField(xPos + 1, yPos + 1, possibleEntriesAtPos.elementAt(0))
-        }
-        else {
+        } else {
             sortPossibilitiesByAmount(possibleEntriesAtPos, xPos, yPos)
         }
-        Helper.printObject("\nfirstNinth", arrayList = firstNinth)
-        Helper.printObject("secondNinth", arrayList = secondNinth)
-        Helper.printObject("thirdNinth", arrayList = thirdNinth)
-        Helper.printObject("fourthNinth", arrayList = fourthNinth)
-        Helper.printObject("fifthNinth", arrayList = fifthNinth)
-        Helper.printObject("sixthNinth", arrayList = sixthNinth)
-        Helper.printObject("seventhNinth", arrayList = seventhNinth)
-        Helper.printObject("eighthNinth", arrayList = eighthNinth)
-        Helper.printObject("ninthNinth", arrayList = ninthNinth)
     }
-
 
     private fun sortPossibilitiesByAmount(possibleEntriesAtPos: Set<Int>, xPos: Int, yPos: Int) {
         mapOfPossibleEntries[arrayListOf(xPos + 1, yPos + 1)] = possibleEntriesAtPos
-        mapOfPossibleEntries = mapOfPossibleEntries.toList().sortedBy { (_, value) -> value.size}.toMap().toMutableMap()
+        mapOfPossibleEntries = mapOfPossibleEntries.toList().sortedBy { (_, value) -> value.size }.toMap().toMutableMap()
     }
 }
 
