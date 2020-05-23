@@ -9,7 +9,7 @@ object Helper {
             arrayList != null -> arrayList.forEach { value ->
                     print("$value ")
                 }
-            array != null -> for (value in array) {
+            array != null -> array.forEach { value ->
                 print("$value ")
             }
 

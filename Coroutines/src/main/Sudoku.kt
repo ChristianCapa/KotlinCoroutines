@@ -13,6 +13,7 @@ class Sudoku {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
+    private var emptyCounter: Int = 0
 
 
     init {
@@ -71,7 +72,7 @@ class Sudoku {
     }
 
 
-    fun getField(xPos: Int, yPos: Int): Int {
+    private fun getField(xPos: Int, yPos: Int): Int {
         return sudoku[xPos][yPos]
     }
 
@@ -92,6 +93,7 @@ class Sudoku {
         for (y in 1..9) {
             for (x in 1..9) {
                 if (getField(x - 1, y - 1) == 0) {
+                    emptyCounter++
                     checkRows(x - 1, y - 1)
                 }
             }
@@ -110,11 +112,11 @@ class Sudoku {
             yRow[(posY - 1)] = getField(xPos, (posY - 1))
         }
 
+
         val possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
         val possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
         var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
-        val ninth = getNinth(xPos, yPos)
-        //possibleEntriesAtPos = ninth?.let { possibleEntriesAtPos.toIntArray().intersect(it) }!!
+        possibleEntriesAtPos = intersectWithNinth(xPos, yPos, possibleEntriesAtPos)
 
 
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
@@ -124,7 +126,7 @@ class Sudoku {
         Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
         Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
-
+        println("\n\nemptyCounter: $emptyCounter")
     }
 
 
@@ -145,6 +147,16 @@ class Sudoku {
             }
         }
         return possibleEntries
+    }
+
+
+    private fun intersectWithNinth(xPos: Int, yPos: Int, possibleEntriesAtPos: Set<Int>): Set<Int> {
+        val ninth = getNinth(xPos + 1, yPos + 1)
+        var setOfEntries: Set<Int> = mutableSetOf()
+        if (ninth != null) {
+            setOfEntries = possibleEntriesAtPos.subtract(ninth)
+        }
+        return setOfEntries
     }
 
 

@@ -13,9 +13,9 @@ class Dispatcher(map: MutableMap<ArrayList<Int>, Set<Int>>) {
         recursiveMeasurement()
     }
 
-    fun recursiveMeasurement() {
+    private fun recursiveMeasurement() {
         for(pos in mapOfPossibleEntries) {
-            println("\nPosition: " + pos)
+            println("\nPosition: $pos")
 
         }
     }
