@@ -5,6 +5,7 @@ import tornadofx.*
 class Sudoku {
 
     private var sudoku = arrayOf<Array<Int>>()
+    private var sudokuSafetyCopy = arrayOf<Array<Int>>()
     private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = HashMap<ArrayList<Int>, Set<Int>>()
     private var firstNinth: ArrayList<Int> = arrayListOf()
     private var secondNinth: ArrayList<Int> = arrayListOf()
@@ -15,17 +16,13 @@ class Sudoku {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
-    private val dispatcher: Dispatcher = Dispatcher(mapOfPossibleEntries)
 
+    private var startAgain = false
+
+    private var sudokuSnapShot: SudokuSnapShot = SudokuSnapShot()
 
     init {
-        for (i in 1..9) {
-            var array = arrayOf<Int>()
-            for (j in 1..9) {
-                array += 0
-            }
-            sudoku += array
-        }
+        sudoku = initSudoku()
     }
 
 
@@ -43,6 +40,9 @@ class Sudoku {
             if (!ninth.contains(value) && !xRow.contains(value) && !yRow.contains(value)) {
                 sudoku[xPos - 1][yPos - 1] = value
                 ninth.add(value)
+                startAgain = false
+            } else {
+                startAgain = true
             }
         }
     }
@@ -176,14 +176,37 @@ class Sudoku {
 
 
     fun recursiveMeasurement() {
-        var sudokuSafetyCopy = sudoku
+        //sudokuSafetyCopy = sudokuCopy(sudoku)
+        sudokuSnapShot.sudokuSafetyCopy = sudoku
+        sudokuSnapShot.firstNinthCopy = firstNinth
+        sudokuSnapShot.secondNinthCopy = secondNinth
+        sudokuSnapShot.thirdNinthCopy = thirdNinth
+        sudokuSnapShot.fourthNinthCopy = fourthNinth
+        sudokuSnapShot.fifthNinthCopy = fifthNinth
+        sudokuSnapShot.sixthNinthCopy = sixthNinth
+        sudokuSnapShot.seventhNinthCopy = seventhNinth
+        sudokuSnapShot.eighthNinthCopy = eighthNinth
+        sudokuSnapShot.ninthNinthCopy = ninthNinth
 
         for (pos in mapOfPossibleEntries) {
             setField(pos.component1()[0], pos.component1()[1], mapOfPossibleEntries[pos.key]!!.elementAt(((1..(pos.key.size)).random()) - 1))
+            if (startAgain) {
+                setField(pos.component1()[0], pos.component1()[1], mapOfPossibleEntries[pos.key]!!.elementAt(((1..(pos.key.size)).random()) - 1))
+            }
         }
-
         if (emptyCounter() != 0) {
-            sudoku = sudokuSafetyCopy
+            //sudoku = sudokuCopy(sudokuSafetyCopy)
+            sudoku = sudokuSnapShot.sudokuSafetyCopy
+            fifthNinth = sudokuSnapShot.firstNinthCopy
+            secondNinth = sudokuSnapShot.secondNinthCopy
+            thirdNinth = sudokuSnapShot.thirdNinthCopy
+            fourthNinth = sudokuSnapShot.fourthNinthCopy
+            fifthNinth = sudokuSnapShot.fifthNinthCopy
+            sixthNinth = sudokuSnapShot.sixthNinthCopy
+            seventhNinth = sudokuSnapShot.seventhNinthCopy
+            eighthNinth = sudokuSnapShot.eighthNinthCopy
+            ninthNinth = sudokuSnapShot.ninthNinthCopy
+            startAgain = false
             recursiveMeasurement()
         }
     }
@@ -222,7 +245,34 @@ class Sudoku {
         return yRow
     }
 
+
+    private fun sudokuCopy(sudoku: Array<Array<Int>>): Array<Array<Int>> {
+        var copy: Array<Array<Int>> = arrayOf<Array<Int>>()
+        copy = initSudoku()
+
+        for (y in 1..9) {
+            for (x in 1..9) {
+                copy[x - 1][y - 1] = sudoku[x - 1][y - 1]
+            }
+        }
+        return copy
+    }
+
+    private fun initSudoku(): Array<Array<Int>>  {
+        var sudoku: Array<Array<Int>> = arrayOf<Array<Int>>()
+        for (i in 1..9) {
+            var array = arrayOf<Int>()
+            for (j in 1..9) {
+                array += 0
+            }
+            sudoku += array
+        }
+        return sudoku
+    }
+
+
 }
+
 
 
 
