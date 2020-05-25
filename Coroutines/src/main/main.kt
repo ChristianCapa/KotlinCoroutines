@@ -41,13 +41,11 @@ fun main(args: Array<String>) {
 
 
     sudoku.iterateFields()
+    sudoku.recursiveMeasurement()
     println("\n\n")
     sudoku.printSudoku()
 
     val dispatcher = Dispatcher(sudoku.getMapOfPossibilities())
-    dispatcher.printMap()
-
-
     //exampleLaunchCoroutinesScope()
 }
 

@@ -1,5 +1,7 @@
 package main
 
+import tornadofx.*
+
 class Sudoku {
 
     private var sudoku = arrayOf<Array<Int>>()
@@ -13,7 +15,7 @@ class Sudoku {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
-    private var emptyCounter: Int = 0
+    private val dispatcher: Dispatcher = Dispatcher(mapOfPossibleEntries)
 
 
     init {
@@ -33,8 +35,16 @@ class Sudoku {
 
 
     fun setField(xPos: Int, yPos: Int, value: Int) {
-        sudoku[xPos - 1][yPos - 1] = value
-        getNinth(xPos, yPos)?.add(value)
+        val ninth = getNinth(xPos, yPos)
+        val xRow = calculateXRow(yPos - 1)
+        val yRow = calculateYRow(xPos - 1)
+
+        if (ninth != null) {
+            if (!ninth.contains(value) && !xRow.contains(value) && !yRow.contains(value)) {
+                sudoku[xPos - 1][yPos - 1] = value
+                ninth.add(value)
+            }
+        }
     }
 
 
@@ -93,7 +103,6 @@ class Sudoku {
         for (y in 1..9) {
             for (x in 1..9) {
                 if (getField(x - 1, y - 1) == 0) {
-                    emptyCounter++
                     checkRows(x - 1, y - 1)
                 }
             }
@@ -102,16 +111,8 @@ class Sudoku {
 
 
     private fun checkRows(xPos: Int, yPos: Int) {
-        val xRow: Array<Int> = Array<Int>(9) { 0 }
-        val yRow: Array<Int> = Array<Int>(9) { 0 }
-
-        for (posX in 1..9) {
-            xRow[(posX - 1)] = getField((posX - 1), yPos)
-        }
-        for (posY in 1..9) {
-            yRow[(posY - 1)] = getField(xPos, (posY - 1))
-        }
-
+        val xRow: Array<Int> = calculateXRow(yPos)
+        val yRow: Array<Int> = calculateYRow(xPos)
 
         val possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
         val possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
@@ -126,7 +127,6 @@ class Sudoku {
         Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
         Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
-        println("\n\nemptyCounter: $emptyCounter")
     }
 
 
@@ -168,10 +168,60 @@ class Sudoku {
         }
     }
 
+
     private fun sortPossibilitiesByAmount(possibleEntriesAtPos: Set<Int>, xPos: Int, yPos: Int) {
         mapOfPossibleEntries[arrayListOf(xPos + 1, yPos + 1)] = possibleEntriesAtPos
         mapOfPossibleEntries = mapOfPossibleEntries.toList().sortedBy { (_, value) -> value.size }.toMap().toMutableMap()
     }
+
+
+    fun recursiveMeasurement() {
+        var sudokuSafetyCopy = sudoku
+
+        for (pos in mapOfPossibleEntries) {
+            setField(pos.component1()[0], pos.component1()[1], mapOfPossibleEntries[pos.key]!!.elementAt(((1..(pos.key.size)).random()) - 1))
+        }
+
+        if (emptyCounter() != 0) {
+            sudoku = sudokuSafetyCopy
+            recursiveMeasurement()
+        }
+    }
+
+
+    private fun emptyCounter(): Int {
+        var emptyCounter: Int = 0
+
+        for (y in 1..9) {
+            for (x in 1..9) {
+                if (getField(x - 1, y - 1) == 0) {
+                    emptyCounter++
+                }
+            }
+        }
+        println("\n\nEmpty Counter: $emptyCounter")
+        return emptyCounter
+    }
+
+
+    private fun calculateXRow(yPos: Int): Array<Int> {
+        val xRow: Array<Int> = Array<Int>(9) { 0 }
+
+        for (posX in 1..9) {
+            xRow[(posX - 1)] = getField((posX - 1), yPos)
+        }
+        return xRow
+    }
+
+    private fun calculateYRow(xPos: Int): Array<Int> {
+        val yRow: Array<Int> = Array<Int>(9) { 0 }
+
+        for (posY in 1..9) {
+            yRow[(posY - 1)] = getField(xPos, (posY - 1))
+        }
+        return yRow
+    }
+
 }
 
 
