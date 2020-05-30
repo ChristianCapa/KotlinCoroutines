@@ -1,11 +1,8 @@
 package main
 
-import tornadofx.*
-
 class Sudoku {
 
     private var sudoku = arrayOf<Array<Int>>()
-    private var sudokuSafetyCopy = arrayOf<Array<Int>>()
     private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = HashMap<ArrayList<Int>, Set<Int>>()
     private var firstNinth: ArrayList<Int> = arrayListOf()
     private var secondNinth: ArrayList<Int> = arrayListOf()
@@ -16,10 +13,7 @@ class Sudoku {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
-
-    private var startAgain = false
-
-    private var sudokuSnapShot: SudokuSnapShot = SudokuSnapShot()
+    private var amountOfFailures = 0
 
     init {
         sudoku = initSudoku()
@@ -31,20 +25,16 @@ class Sudoku {
     }
 
 
-    fun setField(xPos: Int, yPos: Int, value: Int) {
-        val ninth = getNinth(xPos, yPos)
-        val xRow = calculateXRow(yPos - 1)
-        val yRow = calculateYRow(xPos - 1)
-
-        if (ninth != null) {
-            if (!ninth.contains(value) && !xRow.contains(value) && !yRow.contains(value)) {
+    fun setField(xPos: Int, yPos: Int, value: Int): Boolean {
+        if (getNinth(xPos, yPos) != null) {
+            if (!(getNinth(xPos, yPos)!!.contains(value)) && !(calculateXRow(yPos - 1).contains(value)) && !(calculateYRow(xPos - 1).contains(value))) {
                 sudoku[xPos - 1][yPos - 1] = value
-                ninth.add(value)
-                startAgain = false
-            } else {
-                startAgain = true
+                getNinth(xPos, yPos)!!.add(value)
+                return true
             }
         }
+        amountOfFailures++
+        return false
     }
 
 
@@ -119,7 +109,6 @@ class Sudoku {
         var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
         possibleEntriesAtPos = intersectWithNinth(xPos, yPos, possibleEntriesAtPos)
 
-
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
         Helper.printObject("xRow", null, xRow, null)
         Helper.printObject("yRow", null, yRow, null)
@@ -176,39 +165,25 @@ class Sudoku {
 
 
     fun recursiveMeasurement() {
-        //sudokuSafetyCopy = sudokuCopy(sudoku)
-        sudokuSnapShot.sudokuSafetyCopy = sudoku
-        sudokuSnapShot.firstNinthCopy = firstNinth
-        sudokuSnapShot.secondNinthCopy = secondNinth
-        sudokuSnapShot.thirdNinthCopy = thirdNinth
-        sudokuSnapShot.fourthNinthCopy = fourthNinth
-        sudokuSnapShot.fifthNinthCopy = fifthNinth
-        sudokuSnapShot.sixthNinthCopy = sixthNinth
-        sudokuSnapShot.seventhNinthCopy = seventhNinth
-        sudokuSnapShot.eighthNinthCopy = eighthNinth
-        sudokuSnapShot.ninthNinthCopy = ninthNinth
+        takeSnapShot()
+        var positions: ArrayList<ArrayList<Int>> = arrayListOf()
 
-        for (pos in mapOfPossibleEntries) {
-            setField(pos.component1()[0], pos.component1()[1], mapOfPossibleEntries[pos.key]!!.elementAt(((1..(pos.key.size)).random()) - 1))
-            if (startAgain) {
-                setField(pos.component1()[0], pos.component1()[1], mapOfPossibleEntries[pos.key]!!.elementAt(((1..(pos.key.size)).random()) - 1))
+        while (mapOfPossibleEntries.isNotEmpty()) {
+            if (amountOfFailures >= 5) {
+                restoreSnapShot()
+            } else {
+                for ((key, value) in mapOfPossibleEntries) {
+                    if (setField(key.component1(), key.component1(), value.random())) {
+                        println("\n" + key + "; " + key.component1() + ", " + key.component2() + "; " + value + ", " + value.random())
+                        positions.add(key)
+                    }
+                }
+                deleteEntries(positions)
             }
-        }
-        if (emptyCounter() != 0) {
-            //sudoku = sudokuCopy(sudokuSafetyCopy)
-            sudoku = sudokuSnapShot.sudokuSafetyCopy
-            fifthNinth = sudokuSnapShot.firstNinthCopy
-            secondNinth = sudokuSnapShot.secondNinthCopy
-            thirdNinth = sudokuSnapShot.thirdNinthCopy
-            fourthNinth = sudokuSnapShot.fourthNinthCopy
-            fifthNinth = sudokuSnapShot.fifthNinthCopy
-            sixthNinth = sudokuSnapShot.sixthNinthCopy
-            seventhNinth = sudokuSnapShot.seventhNinthCopy
-            eighthNinth = sudokuSnapShot.eighthNinthCopy
-            ninthNinth = sudokuSnapShot.ninthNinthCopy
-            startAgain = false
             recursiveMeasurement()
         }
+        println("\n\nSudoku is finished!")
+        printSudoku()
     }
 
 
@@ -245,7 +220,7 @@ class Sudoku {
         return yRow
     }
 
-
+/*
     private fun sudokuCopy(sudoku: Array<Array<Int>>): Array<Array<Int>> {
         var copy: Array<Array<Int>> = arrayOf<Array<Int>>()
         copy = initSudoku()
@@ -257,8 +232,9 @@ class Sudoku {
         }
         return copy
     }
+*/
 
-    private fun initSudoku(): Array<Array<Int>>  {
+    private fun initSudoku(): Array<Array<Int>> {
         var sudoku: Array<Array<Int>> = arrayOf<Array<Int>>()
         for (i in 1..9) {
             var array = arrayOf<Int>()
@@ -271,6 +247,39 @@ class Sudoku {
     }
 
 
+    private fun takeSnapShot() {
+        SudokuSnapShot.sudokuSafetyCopy = sudoku
+        SudokuSnapShot.firstNinthCopy = firstNinth
+        SudokuSnapShot.secondNinthCopy = secondNinth
+        SudokuSnapShot.thirdNinthCopy = thirdNinth
+        SudokuSnapShot.fourthNinthCopy = fourthNinth
+        SudokuSnapShot.fifthNinthCopy = fifthNinth
+        SudokuSnapShot.sixthNinthCopy = sixthNinth
+        SudokuSnapShot.seventhNinthCopy = seventhNinth
+        SudokuSnapShot.eighthNinthCopy = eighthNinth
+        SudokuSnapShot.ninthNinthCopy = ninthNinth
+    }
+
+
+    private fun restoreSnapShot() {
+        sudoku = SudokuSnapShot.sudokuSafetyCopy
+        fifthNinth = SudokuSnapShot.firstNinthCopy
+        secondNinth = SudokuSnapShot.secondNinthCopy
+        thirdNinth = SudokuSnapShot.thirdNinthCopy
+        fourthNinth = SudokuSnapShot.fourthNinthCopy
+        fifthNinth = SudokuSnapShot.fifthNinthCopy
+        sixthNinth = SudokuSnapShot.sixthNinthCopy
+        seventhNinth = SudokuSnapShot.seventhNinthCopy
+        eighthNinth = SudokuSnapShot.eighthNinthCopy
+        ninthNinth = SudokuSnapShot.ninthNinthCopy
+    }
+
+
+    private fun deleteEntries(positions: ArrayList<ArrayList<Int>>) {
+        for (position in positions) {
+            println(mapOfPossibleEntries.remove(position))
+        }
+    }
 }
 
 

@@ -1,6 +1,6 @@
 package main
 
-class SudokuSnapShot {
+object SudokuSnapShot {
     var sudokuSafetyCopy = arrayOf<Array<Int>>()
     var firstNinthCopy: ArrayList<Int> = arrayListOf()
     var secondNinthCopy: ArrayList<Int> = arrayListOf()

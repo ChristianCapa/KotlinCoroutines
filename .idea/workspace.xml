@@ -20,13 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Coroutines/src/Sudoku.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Coroutines/src/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/KotlinCoroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KotlinCoroutines.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/Coroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/Coroutines.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/SudokuSnapShot.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/SudokuSnapShot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Gui.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/MainView.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Styles.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/SudokuSnapShot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/SudokuSnapShot.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sudoku/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sudoku/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +109,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="C:\Program Files\Java\jdk-14.0.1" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <option name="MAIN_CLASS_NAME" value="main.MainKt" />
       <option name="WORKING_DIRECTORY" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,6 +157,7 @@
       <workItem from="1588698614991" duration="7945000" />
       <workItem from="1588750097310" duration="6149000" />
       <workItem from="1588803855874" duration="621000" />
+      <workItem from="1590866721799" duration="4488000" />
     </task>
     <servers />
   </component>
@@ -176,38 +181,62 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588698050680" />
-    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588698157862">
+    <state x="276" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590867025426">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="0" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588698157862" />
+    <state x="276" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590867025426" />
     <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588105076312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588105076312" />
+    <state x="551" y="302" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590867019354">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="551" y="302" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590867019354" />
     <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1588698490687">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588698490687" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590866806664">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590866806664" />
     <state x="326" y="264" key="FileChooserDialogImpl" timestamp="1588698153503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588698153503" />
-    <state width="914" height="206" key="GridCell.Tab.0.bottom" timestamp="1588766315667">
+    <state width="1877" height="100" key="GridCell.Tab.0.bottom" timestamp="1590875653014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="206" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315667" />
-    <state width="914" height="206" key="GridCell.Tab.0.center" timestamp="1588766315666">
+    <state width="1877" height="100" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.0.center" timestamp="1590875653014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="206" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315666" />
-    <state width="914" height="206" key="GridCell.Tab.0.left" timestamp="1588766315666">
+    <state width="1877" height="100" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.0.left" timestamp="1590875653014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="206" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315666" />
-    <state width="914" height="206" key="GridCell.Tab.0.right" timestamp="1588766315667">
+    <state width="1877" height="100" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.0.right" timestamp="1590875653014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="206" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588766315667" />
+    <state width="1877" height="100" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.1.bottom" timestamp="1590875653014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="100" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.1.center" timestamp="1590875653014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="100" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.1.left" timestamp="1590875653014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="100" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
+    <state width="1877" height="100" key="GridCell.Tab.1.right" timestamp="1590875653014">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="100" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590875653014" />
     <state x="673" y="131" key="SettingsEditor" timestamp="1588698577274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -224,5 +253,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588698448920" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt</url>
+          <line>167</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

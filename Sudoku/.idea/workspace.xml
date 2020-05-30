@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1beba19-492e-4df0-8bce-e71a862c743f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/../Coroutines/src/MainView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Coroutines/src/Sudoku.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Coroutines/src/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/KotlinCoroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/KotlinCoroutines.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Coroutines/Coroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/Coroutines.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/main/SudokuSnapShot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/out/production/Coroutines/main/SudokuSnapShot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/src/main/Sudoku.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/src/main/SudokuSnapShot.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/src/main/SudokuSnapShot.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +33,6 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="tornadofx-empty-project" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -129,40 +123,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <module name="" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MyApp" type="TORNADOFX_RUNCONFIGURATION" factoryName="TornadoFX Configuration Factory" run-type="App" live-views="false" live-stylesheets="false" dump-stylesheets="false">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.app.MyApp" />
       <module name="Sudoku" />
@@ -236,6 +196,7 @@
       <workItem from="1513798964802" duration="21000" />
       <workItem from="1517468649479" duration="15000" />
       <workItem from="1588969568624" duration="465000" />
+      <workItem from="1590866643183" duration="28000" />
     </task>
     <servers />
   </component>
@@ -252,6 +213,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
