@@ -13,7 +13,6 @@ class Sudoku {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
-    private var amountOfFailures = 0
 
     init {
         sudoku = initSudoku()
@@ -26,14 +25,14 @@ class Sudoku {
 
 
     fun setField(xPos: Int, yPos: Int, value: Int): Boolean {
-        if (getNinth(xPos, yPos) != null) {
-            if (!(getNinth(xPos, yPos)!!.contains(value)) && !(calculateXRow(yPos - 1).contains(value)) && !(calculateYRow(xPos - 1).contains(value))) {
+        var ninth = getNinth(xPos, yPos)
+        if (ninth != null) {
+            if (!(ninth.contains(value)) && !(calculateXRow(yPos - 1).contains(value)) && !(calculateYRow(xPos - 1).contains(value))) {
                 sudoku[xPos - 1][yPos - 1] = value
-                getNinth(xPos, yPos)!!.add(value)
+                ninth.add(value)
                 return true
             }
         }
-        amountOfFailures++
         return false
     }
 
@@ -103,18 +102,21 @@ class Sudoku {
     private fun checkRows(xPos: Int, yPos: Int) {
         val xRow: Array<Int> = calculateXRow(yPos)
         val yRow: Array<Int> = calculateYRow(xPos)
-
         val possibleEntriesX: ArrayList<Int> = getPossibleEntries(xRow)
         val possibleEntriesY: ArrayList<Int> = getPossibleEntries(yRow)
         var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
+
         possibleEntriesAtPos = intersectWithNinth(xPos, yPos, possibleEntriesAtPos)
 
+        /*
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
-        Helper.printObject("xRow", null, xRow, null)
-        Helper.printObject("yRow", null, yRow, null)
+        Helper.printObject("xRow", array = xRow)
+        Helper.printObject("yRow", array = yRow)
         Helper.printObject("possibleEntriesX", arrayList = possibleEntriesX)
         Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
         Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
+        */
+
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
     }
 
@@ -164,30 +166,7 @@ class Sudoku {
     }
 
 
-    fun recursiveMeasurement() {
-        takeSnapShot()
-        var positions: ArrayList<ArrayList<Int>> = arrayListOf()
-
-        while (mapOfPossibleEntries.isNotEmpty()) {
-            if (amountOfFailures >= 5) {
-                restoreSnapShot()
-            } else {
-                for ((key, value) in mapOfPossibleEntries) {
-                    if (setField(key.component1(), key.component1(), value.random())) {
-                        println("\n" + key + "; " + key.component1() + ", " + key.component2() + "; " + value + ", " + value.random())
-                        positions.add(key)
-                    }
-                }
-                deleteEntries(positions)
-            }
-            recursiveMeasurement()
-        }
-        println("\n\nSudoku is finished!")
-        printSudoku()
-    }
-
-
-    private fun emptyCounter(): Int {
+    fun emptyCounter(): Int {
         var emptyCounter: Int = 0
 
         for (y in 1..9) {

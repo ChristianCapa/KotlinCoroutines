@@ -39,16 +39,20 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 8, 5)
     sudoku.setField(9, 9, 9)
 
+    var iterator = 0
+    while (sudoku.emptyCounter() != 0) {
+        sudoku.iterateFields()
+        println("\n\n")
+        sudoku.printSudoku()
+        iterator++
+    }
 
-    sudoku.iterateFields()
-    sudoku.recursiveMeasurement()
-    println("\n\n")
-    sudoku.printSudoku()
+    println("The algorithm needed $iterator iterations.")
+
 
     val dispatcher = Dispatcher(sudoku.getMapOfPossibilities())
     //exampleLaunchCoroutinesScope()
 }
-
 
 
 suspend fun printlnDelayed(message: String) {
@@ -108,7 +112,7 @@ fun exampleLaunchCoroutinesScope() = runBlocking {
 }
 
 fun exampleAsyncAwait(threadCount: Int) = runBlocking {
-    val startTime =  System.currentTimeMillis()
+    val startTime = System.currentTimeMillis()
 
     for (i: Int in threadCount until threadCount) {
         println("hi")
@@ -127,7 +131,7 @@ fun exampleAsyncAwait(threadCount: Int) = runBlocking {
 }
 
 fun exampleWithContext() = runBlocking {
-    val startTime =  System.currentTimeMillis()
+    val startTime = System.currentTimeMillis()
 
     val result = withContext(Dispatchers.Default) { calculateHardThings(10) }
     val result2 = withContext(Dispatchers.Default) { calculateHardThings(20) }
