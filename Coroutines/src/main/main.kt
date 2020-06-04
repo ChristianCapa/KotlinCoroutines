@@ -7,7 +7,7 @@ import java.util.concurrent.Executors
 fun main(args: Array<String>) {
 
     val sudoku = Sudoku()
-
+/*
     sudoku.setField(1, 1, 5)
     sudoku.setField(1, 2, 6)
     sudoku.setField(1, 4, 8)
@@ -38,6 +38,33 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 6, 6)
     sudoku.setField(9, 8, 5)
     sudoku.setField(9, 9, 9)
+*/
+    sudoku.setField(1, 1, 6)
+    sudoku.setField(1, 7, 2)
+    sudoku.setField(2, 2, 5)
+    sudoku.setField(2, 6, 7)
+    sudoku.setField(2, 7, 9)
+    sudoku.setField(3, 3, 9)
+    sudoku.setField(3, 4, 1)
+    sudoku.setField(3, 5, 4)
+    sudoku.setField(3, 8, 3)
+    sudoku.setField(4, 8, 8)
+    sudoku.setField(5, 1, 4)
+    sudoku.setField(5, 2, 7)
+    sudoku.setField(5, 5, 5)
+    sudoku.setField(5, 8, 6)
+    sudoku.setField(5, 9, 9)
+    sudoku.setField(6, 1, 8)
+    sudoku.setField(6, 2, 3)
+    sudoku.setField(7, 2, 4)
+    sudoku.setField(7, 5, 3)
+    sudoku.setField(7, 6, 2)
+    sudoku.setField(7, 7, 7)
+    sudoku.setField(8, 2, 2)
+    sudoku.setField(8, 4, 6)
+    sudoku.setField(8, 8, 9)
+    sudoku.setField(9, 3, 8)
+    sudoku.setField(9, 9, 1)
 
     var iterator = 0
     while (sudoku.emptyCounter() != 0) {

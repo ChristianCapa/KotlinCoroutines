@@ -3,7 +3,7 @@ package main
 class Sudoku {
 
     private var sudoku = arrayOf<Array<Int>>()
-    private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = HashMap<ArrayList<Int>, Set<Int>>()
+    private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
     private var firstNinth: ArrayList<Int> = arrayListOf()
     private var secondNinth: ArrayList<Int> = arrayListOf()
     private var thirdNinth: ArrayList<Int> = arrayListOf()
@@ -13,6 +13,17 @@ class Sudoku {
     private var seventhNinth: ArrayList<Int> = arrayListOf()
     private var eighthNinth: ArrayList<Int> = arrayListOf()
     private var ninthNinth: ArrayList<Int> = arrayListOf()
+    private var parentContainer: MutableSet<MutableMap<ArrayList<Int>, Set<Int>>> = mutableSetOf()
+    private var firstNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var secondNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var thirdNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var fourthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var fifthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var sixthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var seventhNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var eighthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+    private var ninthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
+
 
     init {
         sudoku = initSudoku()
@@ -25,7 +36,7 @@ class Sudoku {
 
 
     fun setField(xPos: Int, yPos: Int, value: Int): Boolean {
-        var ninth = getNinth(xPos, yPos)
+        val ninth = getNinth(xPos, yPos)?.first
         if (ninth != null) {
             if (!(ninth.contains(value)) && !(calculateXRow(yPos - 1).contains(value)) && !(calculateYRow(xPos - 1).contains(value))) {
                 sudoku[xPos - 1][yPos - 1] = value
@@ -37,34 +48,34 @@ class Sudoku {
     }
 
 
-    private fun getNinth(xPos: Int, yPos: Int): ArrayList<Int>? {
+    private fun getNinth(xPos: Int, yPos: Int): Pair<ArrayList<Int>, MutableMap<ArrayList<Int>, Set<Int>>>? {
         when {
             xPos <= 3 && yPos <= 3 -> {
-                return firstNinth
+                return Pair(firstNinth, firstNinthContainer)
             }
             xPos in 4..6 && yPos <= 3 -> {
-                return secondNinth
+                return Pair(secondNinth, secondNinthContainer)
             }
             xPos in 7..9 && yPos <= 3 -> {
-                return thirdNinth
+                return Pair(thirdNinth, thirdNinthContainer)
             }
             xPos <= 3 && yPos in 4..6 -> {
-                return fourthNinth
+                return Pair(fourthNinth, fourthNinthContainer)
             }
             xPos in 4..6 && yPos in 4..6 -> {
-                return fifthNinth
+                return Pair(fifthNinth, fifthNinthContainer)
             }
             xPos in 7..9 && yPos in 4..6 -> {
-                return sixthNinth
+                return Pair(sixthNinth, sixthNinthContainer)
             }
             xPos <= 3 && yPos in 7..9 -> {
-                return seventhNinth
+                return Pair(seventhNinth, seventhNinthContainer)
             }
             xPos in 4..6 && yPos in 7..9 -> {
-                return eighthNinth
+                return Pair(eighthNinth, eighthNinthContainer)
             }
             xPos in 7..9 && yPos in 7..9 -> {
-                return ninthNinth
+                return Pair(ninthNinth, ninthNinthContainer)
             }
             else -> return null
         }
@@ -96,6 +107,8 @@ class Sudoku {
                 }
             }
         }
+        attachToParent()
+        invertedMeasure()
     }
 
 
@@ -107,6 +120,9 @@ class Sudoku {
         var possibleEntriesAtPos = possibleEntriesX.intersect(possibleEntriesY)
 
         possibleEntriesAtPos = intersectWithNinth(xPos, yPos, possibleEntriesAtPos)
+        getNinth(xPos + 1, yPos + 1)?.second?.put(arrayListOf(xPos, yPos), possibleEntriesAtPos)
+        setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
+
 
         /*
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
@@ -116,8 +132,6 @@ class Sudoku {
         Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
         Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
         */
-
-        setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
     }
 
 
@@ -142,7 +156,7 @@ class Sudoku {
 
 
     private fun intersectWithNinth(xPos: Int, yPos: Int, possibleEntriesAtPos: Set<Int>): Set<Int> {
-        val ninth = getNinth(xPos + 1, yPos + 1)
+        val ninth = getNinth(xPos + 1, yPos + 1)?.first
         var setOfEntries: Set<Int> = mutableSetOf()
         if (ninth != null) {
             setOfEntries = possibleEntriesAtPos.subtract(ninth)
@@ -167,7 +181,7 @@ class Sudoku {
 
 
     fun emptyCounter(): Int {
-        var emptyCounter: Int = 0
+        var emptyCounter = 0
 
         for (y in 1..9) {
             for (x in 1..9) {
@@ -199,6 +213,18 @@ class Sudoku {
         return yRow
     }
 
+    private fun initSudoku(): Array<Array<Int>> {
+        var sudoku: Array<Array<Int>> = arrayOf()
+        for (i in 1..9) {
+            var array = arrayOf<Int>()
+            for (j in 1..9) {
+                array += 0
+            }
+            sudoku += array
+        }
+        return sudoku
+    }
+
 /*
     private fun sudokuCopy(sudoku: Array<Array<Int>>): Array<Array<Int>> {
         var copy: Array<Array<Int>> = arrayOf<Array<Int>>()
@@ -211,19 +237,7 @@ class Sudoku {
         }
         return copy
     }
-*/
 
-    private fun initSudoku(): Array<Array<Int>> {
-        var sudoku: Array<Array<Int>> = arrayOf<Array<Int>>()
-        for (i in 1..9) {
-            var array = arrayOf<Int>()
-            for (j in 1..9) {
-                array += 0
-            }
-            sudoku += array
-        }
-        return sudoku
-    }
 
 
     private fun takeSnapShot() {
@@ -253,12 +267,38 @@ class Sudoku {
         ninthNinth = SudokuSnapShot.ninthNinthCopy
     }
 
-
     private fun deleteEntries(positions: ArrayList<ArrayList<Int>>) {
         for (position in positions) {
             println(mapOfPossibleEntries.remove(position))
         }
     }
+*/
+
+    private fun invertedMeasure() {
+        for (container in parentContainer) {
+            for (valueSet in container.values) {
+                for (value in valueSet) {
+                    println(value)
+                }
+            }
+            println("\n\n")
+        }
+    }
+
+
+    private fun attachToParent() {
+        parentContainer.add(firstNinthContainer)
+        parentContainer.add(secondNinthContainer)
+        parentContainer.add(thirdNinthContainer)
+        parentContainer.add(fourthNinthContainer)
+        parentContainer.add(fifthNinthContainer)
+        parentContainer.add(sixthNinthContainer)
+        parentContainer.add(seventhNinthContainer)
+        parentContainer.add(eighthNinthContainer)
+        parentContainer.add(ninthNinthContainer)
+    }
+
+
 }
 
 
