@@ -88,6 +88,7 @@ class Sudoku {
 
 
     fun printSudoku() {
+        println()
         for (y in 1..9) {
             for (x in 1..9) {
                 print("${getField(x - 1, y - 1)} ")
@@ -108,7 +109,7 @@ class Sudoku {
             }
         }
         attachToParent()
-        invertedMeasure()
+        invertedMeasuring()
     }
 
 
@@ -190,7 +191,7 @@ class Sudoku {
                 }
             }
         }
-        println("\n\nEmpty Counter: $emptyCounter")
+        println("\nEmpty Counter: $emptyCounter \n")
         return emptyCounter
     }
 
@@ -204,6 +205,7 @@ class Sudoku {
         return xRow
     }
 
+
     private fun calculateYRow(xPos: Int): Array<Int> {
         val yRow: Array<Int> = Array<Int>(9) { 0 }
 
@@ -212,6 +214,7 @@ class Sudoku {
         }
         return yRow
     }
+
 
     private fun initSudoku(): Array<Array<Int>> {
         var sudoku: Array<Array<Int>> = arrayOf()
@@ -225,6 +228,8 @@ class Sudoku {
         return sudoku
     }
 
+
+
 /*
     private fun sudokuCopy(sudoku: Array<Array<Int>>): Array<Array<Int>> {
         var copy: Array<Array<Int>> = arrayOf<Array<Int>>()
@@ -237,7 +242,6 @@ class Sudoku {
         }
         return copy
     }
-
 
 
     private fun takeSnapShot() {
@@ -267,6 +271,7 @@ class Sudoku {
         ninthNinth = SudokuSnapShot.ninthNinthCopy
     }
 
+
     private fun deleteEntries(positions: ArrayList<ArrayList<Int>>) {
         for (position in positions) {
             println(mapOfPossibleEntries.remove(position))
@@ -274,14 +279,61 @@ class Sudoku {
     }
 */
 
-    private fun invertedMeasure() {
+
+
+    private fun invertedMeasuring() {
+        val numberObject = NumberObject()
         for (container in parentContainer) {
             for (valueSet in container.values) {
                 for (value in valueSet) {
-                    println(value)
+                    if (value == 1) {
+                        numberObject.one++
+                    }
+                    if (value == 2) {
+                        numberObject.two++
+                    }
+                    if (value == 3) {
+                        numberObject.three++
+                    }
+                    if (value == 4) {
+                        numberObject.four++
+                    }
+                    if (value == 5) {
+                        numberObject.five++
+                    }
+                    if (value == 6) {
+                        numberObject.six++
+                    }
+                    if (value == 7) {
+                        numberObject.seven++
+                    }
+                    if (value == 8) {
+                        numberObject.eight++
+                    }
+                    if (value == 9) {
+                        numberObject.nine++
+                    }
                 }
             }
-            println("\n\n")
+            val numberList: ArrayList<Int> = numberObject.getEachNumberMatching(1)
+            for (number in numberList) {
+                setInverts(container, number)
+            }
+            numberObject.resetNumbers()
+        }
+    }
+
+
+    private fun setInverts(container: MutableMap<ArrayList<Int>, Set<Int>>, number: Int) {
+        for (key in container.keys) {
+            val values = container[key]
+            if (values != null) {
+                for (value in values) {
+                    if (value == number) {
+                        setField(key.elementAt(0) + 1, key.elementAt(1) + 1, number)
+                    }
+                }
+            }
         }
     }
 
@@ -300,7 +352,6 @@ class Sudoku {
 
 
 }
-
 
 
 
