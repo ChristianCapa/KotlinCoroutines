@@ -7,7 +7,7 @@ import java.util.concurrent.Executors
 fun main(args: Array<String>) {
 
     val sudoku = Sudoku()
-/*
+///*
     sudoku.setField(1, 1, 5)
     sudoku.setField(1, 2, 6)
     sudoku.setField(1, 4, 8)
@@ -38,9 +38,9 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 6, 6)
     sudoku.setField(9, 8, 5)
     sudoku.setField(9, 9, 9)
-*/
+//*/
 
-///*
+/*
     sudoku.setField(1, 1, 6)
     sudoku.setField(1, 7, 2)
     sudoku.setField(2, 2, 5)
@@ -67,7 +67,7 @@ fun main(args: Array<String>) {
     sudoku.setField(8, 8, 9)
     sudoku.setField(9, 3, 8)
     sudoku.setField(9, 9, 1)
-//*/
+*/
 
     var iterator = 0
     while (sudoku.emptyCounter() != 0) {
@@ -76,17 +76,23 @@ fun main(args: Array<String>) {
         iterator++
         if (iterator > 50) {
             break
+            //println(sudoku.getMapOfPossibilities())
         }
     }
 
-    println("The algorithm needed $iterator iterations.")
+    println("The algorithm needed $iterator iterations.\n\n\n")
 
+    sudoku.recursiveMeasuring()
 
-    val dispatcher = Dispatcher(sudoku.getMapOfPossibilities())
+    println("\n\n ${sudoku.getMapOfPossibilities()}")
+    println(sudoku)
+
+    //val dispatcher = Dispatcher(sudoku.getMapOfPossibilities())
     //exampleLaunchCoroutinesScope()
 }
 
 
+/*
 suspend fun printlnDelayed(message: String) {
     delay(1000)
     println(message)
@@ -173,7 +179,7 @@ fun exampleWithContext() = runBlocking {
 
     val endTime = System.currentTimeMillis()
     println("Time Taken ${endTime - startTime}")
-
 }
 
 
+*/

@@ -20,10 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Coroutines/src/main/NumberObject.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/Coroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/Coroutines.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$calculateHardThings$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1$deferred1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1$deferred2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1$deferred3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleBlocking$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleBlockingDispatcher$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchCoroutinesScope$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchCoroutinesScope$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobal$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobal$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobalWaiting$1$job$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobalWaiting$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1$result$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1$result2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1$result3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$printlnDelayed$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/SudokuSnapShot.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/SudokuSnapShot.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,14 +90,15 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="14" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -83,6 +107,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
+    <configuration name="Unnamed" type="JavascriptDebugType" nameIsGenerated="true">
+      <method v="2" />
+    </configuration>
     <configuration name="CoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="Coroutines" />
       <option name="VM_PARAMETERS" />
@@ -123,6 +150,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JavaScript Debug.Unnamed" />
       <item itemvalue="Kotlin.CoroutinesKt" />
       <item itemvalue="Kotlin.MainKt" />
       <item itemvalue="Kotlin.StartingCoroutinesKt" />
@@ -160,6 +188,15 @@
       <workItem from="1591293414414" duration="4128000" />
       <workItem from="1591297611750" duration="7927000" />
       <workItem from="1591475578016" duration="4418000" />
+      <workItem from="1591539204785" duration="232000" />
+      <workItem from="1591544657165" duration="2780000" />
+      <workItem from="1591603356299" duration="9158000" />
+      <workItem from="1591625446221" duration="200000" />
+      <workItem from="1592327520316" duration="5167000" />
+      <workItem from="1592379516558" duration="1616000" />
+      <workItem from="1592985432067" duration="726000" />
+      <workItem from="1593266973285" duration="1204000" />
+      <workItem from="1593366781426" duration="7330000" />
     </task>
     <servers />
   </component>
@@ -183,10 +220,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1588698050680" />
-    <state x="276" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590867025426">
+    <state x="276" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592379751154">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="276" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590867025426" />
+    <state x="276" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592379751154" />
     <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588105076312">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -195,10 +232,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="551" y="302" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590867019354" />
-    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1588698490687">
+    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1591614907849">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588698490687" />
+    <state x="253" y="244" width="637" height="634" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591614907849" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590866806664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -207,57 +244,73 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588698153503" />
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.0.center" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.0.center" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.0.left" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.0.left" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.0.right" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.0.right" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.1.bottom" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.1.bottom" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.1.center" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.1.center" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.1.left" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.1.left" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state width="1877" height="273" key="GridCell.Tab.1.right" timestamp="1591482162084">
+    <state width="1877" height="334" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.1.right" timestamp="1593386866705">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="273" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1591482162084" />
-    <state x="673" y="131" key="SettingsEditor" timestamp="1588698577274">
+    <state width="1877" height="334" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state x="477" y="69" key="SettingsEditor" timestamp="1592379590458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="673" y="131" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588698577274" />
-    <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1588108129691">
+    <state x="477" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592379590458" />
+    <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591614904100">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1588108129691" />
+    <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1591614904100" />
     <state x="154" y="196" key="new project wizard" timestamp="1588108417384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="154" y="196" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588108417384" />
-    <state x="724" y="188" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1591301929661">
+    <state x="724" y="188" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog" timestamp="1592327619331">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="724" y="188" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1591301929661" />
+    <state x="724" y="188" key="org.jetbrains.kotlin.idea.testIntegration.KotlinCreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592327619331" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1588698448920">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588698448920" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt</url>
+          <line>358</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="this" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
