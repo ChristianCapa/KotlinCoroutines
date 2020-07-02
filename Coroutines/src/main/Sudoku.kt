@@ -25,7 +25,6 @@ class Sudoku {
     private var eighthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
     private var ninthNinthContainer: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
 
-
     init {
         sudoku = initSudoku()
     }
@@ -63,6 +62,10 @@ class Sudoku {
             }
         }
         return false
+    }
+
+    private fun setCopiedFields(xPos: Int, yPos: Int, value: Int) {
+        sudoku[xPos][yPos] = value
     }
 
 
@@ -112,6 +115,15 @@ class Sudoku {
         }
     }
 
+    private fun copyFields(): MutableMap<ArrayList<Int>, Int> {
+        var fields: MutableMap<ArrayList<Int>, Int> = mutableMapOf()
+        for (y in 1..9) {
+            for (x in 1..9) {
+                fields[arrayListOf(x - 1, y - 1)] = getField(x - 1, y - 1)
+            }
+        }
+        return fields
+    }
 
     fun iterateFields() {
         for (y in 1..9) {
@@ -210,7 +222,7 @@ class Sudoku {
 
 
     private fun calculateXRow(yPos: Int): Array<Int> {
-        val xRow = arrayOf(0,0,0,0,0,0,0,0,0)
+        val xRow = arrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
 
         for (posX in 1..9) {
             xRow[(posX - 1)] = getField((posX - 1), yPos)
@@ -220,7 +232,7 @@ class Sudoku {
 
 
     private fun calculateYRow(xPos: Int): Array<Int> {
-        val yRow = arrayOf(0,0,0,0,0,0,0,0,0)
+        val yRow = arrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0)
 
         for (posY in 1..9) {
             yRow[(posY - 1)] = getField(xPos, (posY - 1))
@@ -262,8 +274,6 @@ class Sudoku {
         }
     }
 */
-
-
 
 
     private fun invertedMeasuring() {
@@ -341,29 +351,20 @@ class Sudoku {
         val sudokus = mutableListOf<Sudoku>()
 
         for (i in 0 until (mapOfPossibleEntries.values.elementAt(0).size)) {
-            val sudokuCopy = Sudoku()
-            sudokuCopy.mapOfPossibleEntries = copyMap(mapOfPossibleEntries)
-            sudokuCopy.firstNinth = copyNinth(getNinth(0,0)!!.first)
-            sudokuCopy.secondNinth = copyNinth(getNinth(4,0)!!.first)
-            sudokuCopy.thirdNinth = copyNinth(getNinth(7,0)!!.first)
-            sudokuCopy.fourthNinth = copyNinth(getNinth(0,4)!!.first)
-            sudokuCopy.fifthNinth = copyNinth(getNinth(4,4)!!.first)
-            sudokuCopy.seventhNinth = copyNinth(getNinth(7,4)!!.first)
-            sudokuCopy.sixthNinth = copyNinth(getNinth(0,7)!!.first)
-            sudokuCopy.eighthNinth = copyNinth(getNinth(4,7)!!.first)
-            sudokuCopy.ninthNinth = copyNinth(getNinth(7,7)!!.first)
+            val sudokuCopy = newSudoku()
             println(startingPoint)
             println(startingPoint.component1())
             println(startingPoint.component2())
             println(mapOfPossibleEntries[startingPoint]!!.elementAt(i))
-            sudokuCopy.setField(startingPoint.component1() + 1, startingPoint.component2() + 1, mapOfPossibleEntries[startingPoint]!!.elementAt(i))
+            sudokuCopy.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
             sudokuCopy.mapOfPossibleEntries.remove(startingPoint)
-            sudokus.add(i, Sudoku())
+            sudokus.add(i, sudokuCopy)
         }
 
         println(sudokus)
         for (sudoku in sudokus) {
             sudoku.printSudoku()
+            println(sudoku.mapOfPossibleEntries)
         }
     }
 
@@ -382,6 +383,25 @@ class Sudoku {
             mapCopy[entry.component1()] = entry.component2()
         }
         return mapCopy
+    }
+
+    private fun newSudoku(): Sudoku {
+        val sudokuCopy = Sudoku()
+        sudokuCopy.mapOfPossibleEntries = copyMap(mapOfPossibleEntries)
+        sudokuCopy.firstNinth = copyNinth(getNinth(0, 0)!!.first)
+        sudokuCopy.secondNinth = copyNinth(getNinth(4, 0)!!.first)
+        sudokuCopy.thirdNinth = copyNinth(getNinth(7, 0)!!.first)
+        sudokuCopy.fourthNinth = copyNinth(getNinth(0, 4)!!.first)
+        sudokuCopy.fifthNinth = copyNinth(getNinth(4, 4)!!.first)
+        sudokuCopy.seventhNinth = copyNinth(getNinth(7, 4)!!.first)
+        sudokuCopy.sixthNinth = copyNinth(getNinth(0, 7)!!.first)
+        sudokuCopy.eighthNinth = copyNinth(getNinth(4, 7)!!.first)
+        sudokuCopy.ninthNinth = copyNinth(getNinth(7, 7)!!.first)
+        val fields = copyFields()
+        for (entry in fields) {
+            sudokuCopy.setCopiedFields(entry.component1().elementAt(0), entry.component1().elementAt(1), entry.component2())
+        }
+        return sudokuCopy
     }
 }
 

@@ -20,33 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/Coroutines.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/Coroutines.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$calculateHardThings$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1$deferred1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1$deferred2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1$deferred3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleAsyncAwait$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleBlocking$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleBlockingDispatcher$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchCoroutinesScope$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchCoroutinesScope$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobal$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobal$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobalWaiting$1$job$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleLaunchGlobalWaiting$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1$result$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1$result2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1$result3$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$exampleWithContext$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$printlnDelayed$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/SudokuSnapShot.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/SudokuSnapShot.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -197,6 +173,10 @@
       <workItem from="1592985432067" duration="726000" />
       <workItem from="1593266973285" duration="1204000" />
       <workItem from="1593366781426" duration="7330000" />
+      <workItem from="1593386938865" duration="9000" />
+      <workItem from="1593461148121" duration="622000" />
+      <workItem from="1593688708898" duration="49000" />
+      <workItem from="1593688881636" duration="3714000" />
     </task>
     <servers />
   </component>
@@ -244,38 +224,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588698153503" />
-    <state width="1877" height="334" key="GridCell.Tab.0.bottom" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom" timestamp="1593718866309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.0.center" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866309" />
+    <state width="1877" height="334" key="GridCell.Tab.0.center" timestamp="1593718866309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.0.left" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866309" />
+    <state width="1877" height="334" key="GridCell.Tab.0.left" timestamp="1593718866309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.0.right" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866309" />
+    <state width="1877" height="334" key="GridCell.Tab.0.right" timestamp="1593718866309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.1.bottom" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866309" />
+    <state width="1877" height="334" key="GridCell.Tab.1.bottom" timestamp="1593718866310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.1.center" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866310" />
+    <state width="1877" height="334" key="GridCell.Tab.1.center" timestamp="1593718866309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.1.left" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866309" />
+    <state width="1877" height="334" key="GridCell.Tab.1.left" timestamp="1593718866309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
-    <state width="1877" height="334" key="GridCell.Tab.1.right" timestamp="1593386866705">
+    <state width="1877" height="334" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866309" />
+    <state width="1877" height="334" key="GridCell.Tab.1.right" timestamp="1593718866310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593386866705" />
+    <state width="1877" height="334" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593718866310" />
     <state x="477" y="69" key="SettingsEditor" timestamp="1592379590458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -303,7 +283,7 @@
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt</url>
           <line>358</line>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
