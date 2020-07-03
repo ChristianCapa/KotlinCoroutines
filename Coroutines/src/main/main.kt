@@ -74,17 +74,15 @@ fun main(args: Array<String>) {
         sudoku.iterateFields()
         sudoku.printSudoku()
         iterator++
-        if (iterator > 50) {
-            break
-            //println(sudoku.getMapOfPossibilities())
+        if (iterator > 30) {
+            sudoku.recursiveMeasuring()
+            println("iteration finished\n\n\n")
         }
     }
 
-    println("The algorithm needed $iterator iterations.\n\n\n")
+    println("The algorithm stopped with $iterator iterations.\n\n\n")
 
-    sudoku.recursiveMeasuring()
 
-    println("\n\n ${sudoku.getMapOfPossibilities()}")
     println(sudoku)
 
     //val dispatcher = Dispatcher(sudoku.getMapOfPossibilities())
