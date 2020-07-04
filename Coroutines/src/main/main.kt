@@ -3,6 +3,7 @@ package main
 import kotlinx.coroutines.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import kotlin.concurrent.timer
 
 fun main(args: Array<String>) {
 
@@ -70,17 +71,13 @@ fun main(args: Array<String>) {
 //*/
 
     var iterator = 0
-    while (sudoku.emptyCounter() != 0) {
-        if (iterator < 30) {
-            sudoku.iterateFields()
-            sudoku.printSudoku()
-        } else {
-            sudoku.recursiveMeasuring()
-            println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
-        }
-        iterator++
+    if (iterator < 10) {
+        sudoku.iterateFields()
+        sudoku.printSudoku()
     }
-
+    iterator++
+    sudoku.recursiveMeasuring()
+    println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
     println("The algorithm stopped with $iterator iterations.\n\n\n")
 
 

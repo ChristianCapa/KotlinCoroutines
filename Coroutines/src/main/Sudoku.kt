@@ -44,13 +44,6 @@ class Sudoku {
         return mapOfPossibleEntries
     }
 
-    /*
-    fun setMapOfPossibilities(mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>>) {
-        for (entry in mapOfPossibleEntries) {
-            this.mapOfPossibleEntries.apply { entry }
-        }
-    }
-    */
 
     private fun getField(xPos: Int, yPos: Int): Int {
         return sudoku[xPos][yPos]
@@ -343,19 +336,11 @@ class Sudoku {
                 deleteableSudokus.add(sudoku)
             }
         }
-        /*else {
-            val iterator = sudokus.iterator()
-            while (iterator.hasNext()) {
-                measure(startingPoint, iterator.next())
-            }
-        }*/
         mapOfPossibleEntries.remove(startingPoint)
 
-        //println("deletable: $deleteableSudokus")
         for (sudoku in deleteableSudokus) {
             sudokus.remove(sudoku)
         }
-        //println("addable: $addableSudokus")
         for (sudoku in addableSudokus) {
             //if (sudoku.emptyCounter() <= lowestEmptyCounter) {
             sudokus.add(sudoku)
@@ -365,11 +350,13 @@ class Sudoku {
         addableSudokus.clear()
 
         for (sudoku in sudokus) {
-            //sudoku.printSudoku()
+            sudoku.printSudoku()
             sudoku.emptyCounter(withPrintLn = true)
         }
 
-        //println("sudokus: $sudokus")
+        if (lowestEmptyCounter > 0) {
+            recursiveMeasuring()
+        }
     }
 
 
@@ -389,12 +376,8 @@ class Sudoku {
             if (sudoku != null) {
                 val successful = sudoku.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
                 if (successful) {
-                    //println("Sudokus: $sudokus")
                     addableSudokus.add(sudoku)
-                    //println("Sudokus: $sudokus")
                     setLowestEmptyCounter(sudoku.emptyCounter())
-                } else {
-                    sudoku = null
                 }
             }
         }
@@ -429,8 +412,8 @@ class Sudoku {
             sudokuCopy.thirdNinth = copyNinth(getNinth(7, 0)!!.first)
             sudokuCopy.fourthNinth = copyNinth(getNinth(0, 4)!!.first)
             sudokuCopy.fifthNinth = copyNinth(getNinth(4, 4)!!.first)
-            sudokuCopy.seventhNinth = copyNinth(getNinth(7, 4)!!.first)
-            sudokuCopy.sixthNinth = copyNinth(getNinth(0, 7)!!.first)
+            sudokuCopy.sixthNinth = copyNinth(getNinth(7, 4)!!.first)
+            sudokuCopy.seventhNinth = copyNinth(getNinth(0, 7)!!.first)
             sudokuCopy.eighthNinth = copyNinth(getNinth(4, 7)!!.first)
             sudokuCopy.ninthNinth = copyNinth(getNinth(7, 7)!!.first)
         } else {
@@ -441,8 +424,8 @@ class Sudoku {
             sudokuCopy.thirdNinth = sudokuToCopy.copyNinth(getNinth(7, 0)!!.first)
             sudokuCopy.fourthNinth = sudokuToCopy.copyNinth(getNinth(0, 4)!!.first)
             sudokuCopy.fifthNinth = sudokuToCopy.copyNinth(getNinth(4, 4)!!.first)
-            sudokuCopy.seventhNinth = sudokuToCopy.copyNinth(getNinth(7, 4)!!.first)
-            sudokuCopy.sixthNinth = sudokuToCopy.copyNinth(getNinth(0, 7)!!.first)
+            sudokuCopy.sixthNinth = sudokuToCopy.copyNinth(getNinth(7, 4)!!.first)
+            sudokuCopy.seventhNinth = sudokuToCopy.copyNinth(getNinth(0, 7)!!.first)
             sudokuCopy.eighthNinth = sudokuToCopy.copyNinth(getNinth(4, 7)!!.first)
             sudokuCopy.ninthNinth = sudokuToCopy.copyNinth(getNinth(7, 7)!!.first)
         }
