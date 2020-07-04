@@ -27,6 +27,7 @@ class Sudoku {
     private val sudokus = mutableListOf<Sudoku>()
     private val deleteableSudokus = mutableListOf<Sudoku>()
     private val addableSudokus = mutableListOf<Sudoku>()
+    var lowestEmptyCounter = 81
 
 
     init {
@@ -139,6 +140,7 @@ class Sudoku {
         }
         attachToParent()
         invertedMeasuring()
+        cleanUpMapOfPossibleEntries()
     }
 
 
@@ -210,7 +212,7 @@ class Sudoku {
     }
 
 
-    fun emptyCounter(): Int {
+    fun emptyCounter(withPrintLn: Boolean = false): Int {
         var emptyCounter = 0
 
         for (y in 1..9) {
@@ -220,7 +222,9 @@ class Sudoku {
                 }
             }
         }
-        println("\nEmpty Counter: $emptyCounter \n")
+        if (withPrintLn) {
+            println("\nEmpty Counter: $emptyCounter \n")
+        }
         return emptyCounter
     }
 
@@ -256,28 +260,6 @@ class Sudoku {
         }
         return sudoku
     }
-
-
-/*
-    private fun sudokuCopy(sudoku: Array<Array<Int>>): Array<Array<Int>> {
-        var copy: Array<Array<Int>> = arrayOf<Array<Int>>()
-        copy = initSudoku()
-
-        for (y in 1..9) {
-            for (x in 1..9) {
-                copy[x - 1][y - 1] = sudoku[x - 1][y - 1]
-            }
-        }
-        return copy
-    }
-
-
-    private fun deleteEntries(positions: ArrayList<ArrayList<Int>>) {
-        for (position in positions) {
-            println(mapOfPossibleEntries.remove(position))
-        }
-    }
-*/
 
 
     private fun invertedMeasuring() {
@@ -351,16 +333,22 @@ class Sudoku {
 
 
     fun recursiveMeasuring() {
-        //println(mapOfPossibleEntries)
+        println(mapOfPossibleEntries)
         val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
         if (sudokus.size == 0) {
             measure(startingPoint, newSudoku())
         } else {
+            for (sudoku in sudokus) {
+                measure(startingPoint, sudoku)
+                deleteableSudokus.add(sudoku)
+            }
+        }
+        /*else {
             val iterator = sudokus.iterator()
             while (iterator.hasNext()) {
                 measure(startingPoint, iterator.next())
             }
-        }
+        }*/
         mapOfPossibleEntries.remove(startingPoint)
 
         //println("deletable: $deleteableSudokus")
@@ -369,15 +357,18 @@ class Sudoku {
         }
         //println("addable: $addableSudokus")
         for (sudoku in addableSudokus) {
+            //if (sudoku.emptyCounter() <= lowestEmptyCounter) {
             sudokus.add(sudoku)
+            //}
         }
         deleteableSudokus.clear()
         addableSudokus.clear()
 
         for (sudoku in sudokus) {
-            sudoku.printSudoku()
-            sudoku.emptyCounter()
+            //sudoku.printSudoku()
+            sudoku.emptyCounter(withPrintLn = true)
         }
+
         //println("sudokus: $sudokus")
     }
 
@@ -395,13 +386,13 @@ class Sudoku {
             println(mapOfPossibleEntries[startingPoint]!!.elementAt(i))
             */
 
-            if (sudokuCopy != null) {
-                val successful = sudoku?.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))!!
+            if (sudoku != null) {
+                val successful = sudoku.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
                 if (successful) {
-                    deleteableSudokus.add(sudokuCopy)
                     //println("Sudokus: $sudokus")
                     addableSudokus.add(sudoku)
                     //println("Sudokus: $sudokus")
+                    setLowestEmptyCounter(sudoku.emptyCounter())
                 } else {
                     sudoku = null
                 }
@@ -459,6 +450,26 @@ class Sudoku {
             sudokuCopy.setCopiedFields(entry.component1().elementAt(0), entry.component1().elementAt(1), entry.component2())
         }
         return sudokuCopy
+    }
+
+    private fun setLowestEmptyCounter(emptyCounter: Int): Boolean {
+        if (emptyCounter < lowestEmptyCounter) {
+            lowestEmptyCounter = emptyCounter
+            return true
+        }
+        return false
+    }
+
+    private fun cleanUpMapOfPossibleEntries() {
+        val deletableEntries = arrayListOf<ArrayList<Int>>()
+        for (entry in mapOfPossibleEntries) {
+            if (getField(entry.component1().elementAt(0) - 1, entry.component1().elementAt(1) - 1) != 0) {
+                deletableEntries.add(entry.component1())
+            }
+        }
+        for (entry in deletableEntries) {
+            mapOfPossibleEntries.remove(entry)
+        }
     }
 }
 

@@ -22,7 +22,6 @@
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/main.kt" afterDir="false" />
@@ -182,7 +181,8 @@
       <workItem from="1593723055323" duration="5327000" />
       <workItem from="1593770745680" duration="724000" />
       <workItem from="1593779259630" duration="5596000" />
-      <workItem from="1593799500952" duration="6032000" />
+      <workItem from="1593799500952" duration="7659000" />
+      <workItem from="1593854712564" duration="9296000" />
     </task>
     <servers />
   </component>
@@ -230,38 +230,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="326" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588698153503" />
-    <state width="1877" height="822" key="GridCell.Tab.0.bottom" timestamp="1593806041565">
+    <state width="1877" height="285" key="GridCell.Tab.-1.bottom" timestamp="1593864646832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="822" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593806041565" />
-    <state width="1877" height="822" key="GridCell.Tab.0.center" timestamp="1593806041564">
+    <state width="1877" height="285" key="GridCell.Tab.-1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
+    <state width="1877" height="285" key="GridCell.Tab.-1.center" timestamp="1593864646832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="822" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593806041564" />
-    <state width="1877" height="822" key="GridCell.Tab.0.left" timestamp="1593806041564">
+    <state width="1877" height="285" key="GridCell.Tab.-1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
+    <state width="1877" height="285" key="GridCell.Tab.-1.left" timestamp="1593864646832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="822" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593806041564" />
-    <state width="1877" height="822" key="GridCell.Tab.0.right" timestamp="1593806041565">
+    <state width="1877" height="285" key="GridCell.Tab.-1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
+    <state width="1877" height="285" key="GridCell.Tab.-1.right" timestamp="1593864646832">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="822" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593806041565" />
-    <state width="1877" height="334" key="GridCell.Tab.1.bottom" timestamp="1593794818188">
+    <state width="1877" height="285" key="GridCell.Tab.-1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1593864646843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593794818188" />
-    <state width="1877" height="334" key="GridCell.Tab.1.center" timestamp="1593794818188">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646843" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1593864646843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593794818188" />
-    <state width="1877" height="334" key="GridCell.Tab.1.left" timestamp="1593794818188">
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646843" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1593864646843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593794818188" />
-    <state width="1877" height="334" key="GridCell.Tab.1.right" timestamp="1593794818188">
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646843" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1593864646843">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="334" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593794818188" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646843" />
+    <state width="1877" height="285" key="GridCell.Tab.1.bottom" timestamp="1593864553463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593864553463" />
+    <state width="1877" height="285" key="GridCell.Tab.1.center" timestamp="1593864553463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593864553463" />
+    <state width="1877" height="285" key="GridCell.Tab.1.left" timestamp="1593864553463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593864553463" />
+    <state width="1877" height="285" key="GridCell.Tab.1.right" timestamp="1593864553463">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864553463" />
     <state x="477" y="69" key="SettingsEditor" timestamp="1592379590458">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -288,6 +304,15 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593779663113" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt</url>
+          <line>337</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="JetRunConfigurationType">
         <watch expression="this" />

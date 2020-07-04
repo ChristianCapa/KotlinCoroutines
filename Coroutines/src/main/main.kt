@@ -71,13 +71,14 @@ fun main(args: Array<String>) {
 
     var iterator = 0
     while (sudoku.emptyCounter() != 0) {
-        sudoku.iterateFields()
-        sudoku.printSudoku()
-        iterator++
-        if (iterator > 30) {
+        if (iterator < 30) {
+            sudoku.iterateFields()
+            sudoku.printSudoku()
+        } else {
             sudoku.recursiveMeasuring()
-            println("iteration finished\n\n\n")
+            println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
         }
+        iterator++
     }
 
     println("The algorithm stopped with $iterator iterations.\n\n\n")
