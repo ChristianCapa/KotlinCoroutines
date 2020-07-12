@@ -1,8 +1,9 @@
 package main
 
+import kotlinx.coroutines.*
+
 
 class Sudoku {
-
     private var sudoku = arrayOf<Array<Int>>()
     private var mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>> = mutableMapOf()
     private var firstNinth: ArrayList<Int> = arrayListOf()
@@ -27,18 +28,13 @@ class Sudoku {
     private val sudokus = mutableListOf<Sudoku>()
     private val deleteableSudokus = mutableListOf<Sudoku>()
     private val addableSudokus = mutableListOf<Sudoku>()
-    var lowestEmptyCounter = 81
+    private var lowestEmptyCounter = 81
 
 
     init {
         sudoku = initSudoku()
     }
 
-    /*
-    fun getSudoku(): Array<Array<Int>> {
-        return sudoku
-    }
-    */
 
     fun getMapOfPossibilities(): MutableMap<ArrayList<Int>, Set<Int>> {
         return mapOfPossibleEntries
@@ -61,6 +57,7 @@ class Sudoku {
         }
         return false
     }
+
 
     private fun setCopiedFields(xPos: Int, yPos: Int, value: Int) {
         sudoku[xPos][yPos] = value
@@ -113,6 +110,7 @@ class Sudoku {
         }
     }
 
+
     private fun copyFields(): MutableMap<ArrayList<Int>, Int> {
         val fields: MutableMap<ArrayList<Int>, Int> = mutableMapOf()
         for (y in 1..9) {
@@ -122,6 +120,7 @@ class Sudoku {
         }
         return fields
     }
+
 
     fun iterateFields() {
         for (y in 1..9) {
@@ -147,7 +146,6 @@ class Sudoku {
         possibleEntriesAtPos = intersectWithNinth(xPos, yPos, possibleEntriesAtPos)
         getNinth(xPos + 1, yPos + 1)?.second?.put(arrayListOf(xPos, yPos), possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
-
 
         /*
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
@@ -325,8 +323,8 @@ class Sudoku {
     }
 
 
-    fun recursiveMeasuring() {
-        println(mapOfPossibleEntries)
+    fun recursiveMeasuring(recursion: Boolean = false): Boolean {
+        //println(mapOfPossibleEntries)
         val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
         if (sudokus.size == 0) {
             measure(startingPoint, newSudoku())
@@ -342,9 +340,7 @@ class Sudoku {
             sudokus.remove(sudoku)
         }
         for (sudoku in addableSudokus) {
-            //if (sudoku.emptyCounter() <= lowestEmptyCounter) {
             sudokus.add(sudoku)
-            //}
         }
         deleteableSudokus.clear()
         addableSudokus.clear()
@@ -354,24 +350,19 @@ class Sudoku {
             sudoku.emptyCounter(withPrintLn = true)
         }
 
-        if (lowestEmptyCounter > 0) {
-            recursiveMeasuring()
+        if (recursion && lowestEmptyCounter > 0) {
+            recursiveMeasuring(recursion = true)
         }
+        if (lowestEmptyCounter == 0) {
+            return true
+        }
+        return false
     }
 
 
     private fun measure(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?) {
-        //println("Sudokus: $sudokus")
-        //println(sudokuCopy)
         for (i in 0 until (mapOfPossibleEntries.values.elementAt(0).size)) {
-            var sudoku: Sudoku? = newSudoku(sudokuCopy)
-
-            /*
-            println(startingPoint)
-            println(startingPoint.component1())
-            println(startingPoint.component2())
-            println(mapOfPossibleEntries[startingPoint]!!.elementAt(i))
-            */
+            val sudoku: Sudoku? = newSudoku(sudokuCopy)
 
             if (sudoku != null) {
                 val successful = sudoku.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
@@ -392,6 +383,7 @@ class Sudoku {
         return ninthCopy
     }
 
+
     private fun copyMap(mapOfPossibleEntries: MutableMap<ArrayList<Int>, Set<Int>>): MutableMap<ArrayList<Int>, Set<Int>> {
         val mapCopy = mutableMapOf<ArrayList<Int>, Set<Int>>()
         for (entry in mapOfPossibleEntries) {
@@ -400,7 +392,8 @@ class Sudoku {
         return mapCopy
     }
 
-    private fun newSudoku(sudokuToCopy: Sudoku? = null): Sudoku {
+
+    fun newSudoku(sudokuToCopy: Sudoku? = null): Sudoku {
         val sudokuCopy = Sudoku()
         var fields = mutableMapOf<ArrayList<Int>, Int>()
 
@@ -435,6 +428,7 @@ class Sudoku {
         return sudokuCopy
     }
 
+
     private fun setLowestEmptyCounter(emptyCounter: Int): Boolean {
         if (emptyCounter < lowestEmptyCounter) {
             lowestEmptyCounter = emptyCounter
@@ -442,6 +436,7 @@ class Sudoku {
         }
         return false
     }
+
 
     private fun cleanUpMapOfPossibleEntries() {
         val deletableEntries = arrayListOf<ArrayList<Int>>()
@@ -453,6 +448,82 @@ class Sudoku {
         for (entry in deletableEntries) {
             mapOfPossibleEntries.remove(entry)
         }
+    }
+
+
+    //functions for coroutines
+
+
+    private suspend fun recursiveMeasuringCoroutines(recursion: Boolean = false): Boolean {
+        println(mapOfPossibleEntries)
+        val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
+        if (sudokus.size == 0) {
+            val job = GlobalScope.launch(Dispatchers.Default) {
+                measureCoroutines(startingPoint, newSudoku())
+            }
+            job.join()
+        } else {
+            for (sudoku in sudokus) {
+                val job = GlobalScope.launch(Dispatchers.Default) {
+                    //println("Current Thread:   ${Thread.currentThread().name}")
+                    measureCoroutines(startingPoint, sudoku)
+                    deleteableSudokus.add(sudoku)
+                }
+                job.join()
+            }
+        }
+        mapOfPossibleEntries.remove(startingPoint)
+
+        for (sudoku in deleteableSudokus) {
+            sudokus.remove(sudoku)
+        }
+        for (sudoku in addableSudokus) {
+            sudokus.add(sudoku)
+        }
+        deleteableSudokus.clear()
+        addableSudokus.clear()
+
+        for (sudoku in sudokus) {
+            sudoku.printSudoku()
+            sudoku.emptyCounter(withPrintLn = true)
+        }
+
+        if (recursion && lowestEmptyCounter > 0) {
+            recursiveMeasuring(recursion = true)
+        }
+        if (lowestEmptyCounter == 0) {
+            return true
+        }
+        return false
+    }
+
+
+    private suspend fun measureCoroutines(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?) {
+        for (i in 0 until (mapOfPossibleEntries.values.elementAt(0).size)) {
+            val deffered = GlobalScope.async {
+                val sudoku: Sudoku? = newSudoku(sudokuCopy)
+                if (sudoku != null) {
+                    val successful = sudoku.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
+                    if (successful) {
+                        addableSudokus.add(sudoku)
+                        setLowestEmptyCounter(sudoku.emptyCounter())
+                    }
+                }
+            }
+            deffered.await()
+        }
+    }
+
+
+    suspend fun measureWithCoroutines() {
+        val job = GlobalScope.launch {
+            while (lowestEmptyCounter > 0) {
+                if(recursiveMeasuringCoroutines()) {
+                    break
+                }
+            }
+        }
+        job.join()
     }
 }
 

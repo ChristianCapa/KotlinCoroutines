@@ -1,13 +1,12 @@
 package main
 
 import kotlinx.coroutines.*
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import kotlin.concurrent.timer
 
 fun main(args: Array<String>) {
 
     val sudoku = Sudoku()
+
+// easy
 /*
     sudoku.setField(1, 1, 5)
     sudoku.setField(1, 2, 6)
@@ -41,6 +40,7 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 9, 9)
 */
 
+// hard
 ///*
     sudoku.setField(1, 1, 6)
     sudoku.setField(1, 7, 2)
@@ -70,112 +70,83 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 9, 1)
 //*/
 
+//hardest in the world
+    /*
+    sudoku.setField(1, 1, 8)
+    sudoku.setField(2, 3, 7)
+    sudoku.setField(2, 4, 5)
+    sudoku.setField(2, 9, 9)
+    sudoku.setField(3, 2, 3)
+    sudoku.setField(3, 7, 1)
+    sudoku.setField(3, 8, 8)
+    sudoku.setField(4, 2, 6)
+    sudoku.setField(4, 6, 1)
+    sudoku.setField(4, 8, 5)
+    sudoku.setField(5, 3, 9)
+    sudoku.setField(5, 5, 4)
+    sudoku.setField(6, 4, 7)
+    sudoku.setField(6, 5, 5)
+    sudoku.setField(7, 3, 2)
+    sudoku.setField(7, 5, 7)
+    sudoku.setField(7, 9, 4)
+    sudoku.setField(8, 6, 3)
+    sudoku.setField(8, 7, 6)
+    sudoku.setField(8, 8, 1)
+    sudoku.setField(9, 7, 8)
+    */
+
+    val sudokuCoroutines: Sudoku = sudoku.newSudoku(sudoku)
+
+    //to set up the sudoku
     var iterator = 0
-    if (iterator < 10) {
+    while (iterator < 5) {
         sudoku.iterateFields()
+        sudokuCoroutines.iterateFields()
         sudoku.printSudoku()
+        sudokuCoroutines.printSudoku()
+        iterator++
     }
-    iterator++
-    sudoku.recursiveMeasuring()
+
+
+
+
+    //with coroutines
+    ///*
+    val startTimeCoroutines = System.currentTimeMillis()
+
+    runWithCoroutines(sudokuCoroutines)
+
+    val endTimeCoroutines = System.currentTimeMillis()
+    //*/
+
+
+
+    //recursion
+    ///*
+    val startTimeRecursion = System.currentTimeMillis()
+
+    sudoku.recursiveMeasuring(recursion = true)
     println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
-    println("The algorithm stopped with $iterator iterations.\n\n\n")
+
+    val endTimeRecursion = System.currentTimeMillis()
+    //*/
 
 
-    println(sudoku)
-
-    //val dispatcher = Dispatcher(sudoku.getMapOfPossibilities())
-    //exampleLaunchCoroutinesScope()
-}
-
-
-/*
-suspend fun printlnDelayed(message: String) {
-    delay(1000)
-    println(message)
-}
-
-suspend fun calculateHardThings(startNum: Int): Int {
-    delay(1000)
-    return startNum * 10
-}
-
-fun exampleBlocking() = runBlocking {
-    println("one")
-    printlnDelayed("two")
-    println("three")
-}
-
-fun exampleBlockingDispatcher() {
-    runBlocking(Dispatchers.Default) {
-        println("one - from thread ${Thread.currentThread().name}")
-        printlnDelayed("two - from thread ${Thread.currentThread().name}")
-    }
-    println("three - from thread ${Thread.currentThread().name}")
-}
-
-fun exampleLaunchGlobal() = runBlocking {
-    println("one - from thread ${Thread.currentThread().name}")
-
-    GlobalScope.launch {
-        printlnDelayed("two - from thread ${Thread.currentThread().name}")
-    }
-    println("three - from thread ${Thread.currentThread().name}")
-    delay(3000)
-}
-
-fun exampleLaunchGlobalWaiting() = runBlocking {
-    println("one - from thread ${Thread.currentThread().name}")
-
-    val job = GlobalScope.launch {
-        printlnDelayed("two - from thread ${Thread.currentThread().name}")
-    }
-    println("three - from thread ${Thread.currentThread().name}")
-    job.join()
-}
-
-fun exampleLaunchCoroutinesScope() = runBlocking {
-    println("one - from thread ${Thread.currentThread().name}")
-
-    val customDispatcher = Executors.newFixedThreadPool(2).asCoroutineDispatcher()
-
-    launch(customDispatcher) {
-        printlnDelayed("two - from thread ${Thread.currentThread().name}")
-    }
-    println("three - from thread ${Thread.currentThread().name}")
-    (customDispatcher.executor as ExecutorService).shutdown()
-}
-
-fun exampleAsyncAwait(threadCount: Int) = runBlocking {
-    val startTime = System.currentTimeMillis()
-
-    for (i: Int in threadCount until threadCount) {
-        println("hi")
-    }
-
-    val deferred1 = async { calculateHardThings(10) }
-    val deferred2 = async { calculateHardThings(20) }
-    val deferred3 = async { calculateHardThings(30) }
-
-    val sum = deferred1.await() + deferred2.await() + deferred3.await()
-    println("async/await result = $sum")
-
-    val endTime = System.currentTimeMillis()
-    println("Time Taken ${endTime - startTime}")
+    println("Time Taken (coroutines) ${endTimeCoroutines - startTimeCoroutines}")
+    println("Time Taken (recursion) ${endTimeRecursion - startTimeRecursion}")
 
 }
 
-fun exampleWithContext() = runBlocking {
-    val startTime = System.currentTimeMillis()
 
-    val result = withContext(Dispatchers.Default) { calculateHardThings(10) }
-    val result2 = withContext(Dispatchers.Default) { calculateHardThings(20) }
-    val result3 = withContext(Dispatchers.Default) { calculateHardThings(30) }
-    val sum = result + result2 + result3
-    println("async/await result = $sum")
 
-    val endTime = System.currentTimeMillis()
-    println("Time Taken ${endTime - startTime}")
+fun runWithCoroutines(sudoku: Sudoku) = runBlocking {
+
+    println("Measuring started.")
+
+    sudoku.measureWithCoroutines()
+
+    println("Measuring ended.")
+
 }
 
 
-*/

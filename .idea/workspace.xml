@@ -22,6 +22,7 @@
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/main.kt" afterDir="false" />
@@ -72,10 +73,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="14" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build.tools" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -182,7 +184,20 @@
       <workItem from="1593770745680" duration="724000" />
       <workItem from="1593779259630" duration="5596000" />
       <workItem from="1593799500952" duration="7659000" />
-      <workItem from="1593854712564" duration="17259000" />
+      <workItem from="1593854712564" duration="17385000" />
+      <workItem from="1593940227260" duration="5322000" />
+      <workItem from="1594030671286" duration="880000" />
+      <workItem from="1594031560852" duration="348000" />
+      <workItem from="1594031918400" duration="383000" />
+      <workItem from="1594032310051" duration="730000" />
+      <workItem from="1594042809366" duration="3378000" />
+      <workItem from="1594048334812" duration="4389000" />
+      <workItem from="1594194348570" duration="617000" />
+      <workItem from="1594406346020" duration="2587000" />
+      <workItem from="1594416641064" duration="5031000" />
+      <workItem from="1594487162518" duration="2766000" />
+      <workItem from="1594492819881" duration="5898000" />
+      <workItem from="1594550869310" duration="3414000" />
     </task>
     <servers />
   </component>
@@ -246,22 +261,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.-1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
-    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1593890274547">
+    <state width="1877" height="270" key="GridCell.Tab.0.bottom" timestamp="1594558080006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593890274547" />
-    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1593890274547">
+    <state width="1877" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
+    <state width="1877" height="270" key="GridCell.Tab.0.center" timestamp="1594558080006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593890274547" />
-    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1593890274546">
+    <state width="1877" height="270" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
+    <state width="1877" height="270" key="GridCell.Tab.0.left" timestamp="1594558080006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593890274546" />
-    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1593890274547">
+    <state width="1877" height="270" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
+    <state width="1877" height="270" key="GridCell.Tab.0.right" timestamp="1594558080006">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593890274547" />
+    <state width="1877" height="270" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
     <state width="1877" height="285" key="GridCell.Tab.1.bottom" timestamp="1593864553463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -278,10 +293,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864553463" />
-    <state x="477" y="69" key="SettingsEditor" timestamp="1592379590458">
+    <state x="501" y="359" key="Performance.Activity.Monitor" timestamp="1594032392428">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="477" y="69" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1592379590458" />
+    <state x="501" y="359" key="Performance.Activity.Monitor/0.0.1920.1040@0.0.1920.1040" timestamp="1594032392428" />
+    <state x="477" y="69" width="1129" height="866" key="SettingsEditor" timestamp="1594031490765">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="477" y="69" width="1129" height="866" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594031490765" />
     <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591614904100">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -298,21 +317,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593877984317" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1593779663113">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1594422514035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593779663113" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594422514035" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt</url>
-          <line>331</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JetRunConfigurationType">
         <watch expression="this" />
