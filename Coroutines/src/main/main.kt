@@ -40,6 +40,7 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 9, 9)
 */
 
+
 // hard
 ///*
     sudoku.setField(1, 1, 6)
@@ -70,31 +71,6 @@ fun main(args: Array<String>) {
     sudoku.setField(9, 9, 1)
 //*/
 
-//hardest in the world
-    /*
-    sudoku.setField(1, 1, 8)
-    sudoku.setField(2, 3, 7)
-    sudoku.setField(2, 4, 5)
-    sudoku.setField(2, 9, 9)
-    sudoku.setField(3, 2, 3)
-    sudoku.setField(3, 7, 1)
-    sudoku.setField(3, 8, 8)
-    sudoku.setField(4, 2, 6)
-    sudoku.setField(4, 6, 1)
-    sudoku.setField(4, 8, 5)
-    sudoku.setField(5, 3, 9)
-    sudoku.setField(5, 5, 4)
-    sudoku.setField(6, 4, 7)
-    sudoku.setField(6, 5, 5)
-    sudoku.setField(7, 3, 2)
-    sudoku.setField(7, 5, 7)
-    sudoku.setField(7, 9, 4)
-    sudoku.setField(8, 6, 3)
-    sudoku.setField(8, 7, 6)
-    sudoku.setField(8, 8, 1)
-    sudoku.setField(9, 7, 8)
-    */
-
     val sudokuCoroutines: Sudoku = sudoku.newSudoku(sudoku)
 
     //to set up the sudoku
@@ -108,45 +84,41 @@ fun main(args: Array<String>) {
     }
 
 
+    if (sudoku.emptyCounter(withPrintLn = true) != 0) {
+        //with coroutines
+        ///*
+        val startTimeCoroutines = System.currentTimeMillis()
+
+        runWithCoroutines(sudokuCoroutines)
+
+        val endTimeCoroutines = System.currentTimeMillis()
+        //*/
 
 
-    //with coroutines
-    ///*
-    val startTimeCoroutines = System.currentTimeMillis()
+        //recursion
+        /*
+        val startTimeRecursion = System.currentTimeMillis()
 
-    runWithCoroutines(sudokuCoroutines)
+        sudoku.recursiveMeasuring(recursion = true)
+        println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
 
-    val endTimeCoroutines = System.currentTimeMillis()
-    //*/
-
-
-
-    //recursion
-    ///*
-    val startTimeRecursion = System.currentTimeMillis()
-
-    sudoku.recursiveMeasuring(recursion = true)
-    println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
-
-    val endTimeRecursion = System.currentTimeMillis()
-    //*/
+        val endTimeRecursion = System.currentTimeMillis()
+        */
 
 
-    println("Time Taken (coroutines) ${endTimeCoroutines - startTimeCoroutines}")
-    println("Time Taken (recursion) ${endTimeRecursion - startTimeRecursion}")
-
+        println("Time Taken (coroutines) ${endTimeCoroutines - startTimeCoroutines}")
+        //println("Time Taken (recursion) ${endTimeRecursion - startTimeRecursion}")
+    }
 }
 
 
-
 fun runWithCoroutines(sudoku: Sudoku) = runBlocking {
-
     println("Measuring started.")
 
     sudoku.measureWithCoroutines()
 
     println("Measuring ended.")
-
 }
+
 
 

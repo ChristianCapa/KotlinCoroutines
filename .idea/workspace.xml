@@ -21,9 +21,21 @@
   <component name="ChangeListManager">
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/CoroutinesKt$main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/CoroutinesKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Dispatcher.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runWithCoroutines$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runWithCoroutines$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$sortPossibilitiesByAmount$$inlined$sortedBy$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$measureCoroutines$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$measureCoroutines$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$measureCoroutines$deffered$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$measureWithCoroutines$job$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$measureWithCoroutines$job$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$recursiveMeasuringCoroutines$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$recursiveMeasuringCoroutines$job$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku$recursiveMeasuringCoroutines$job$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Coroutines.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Dispatcher.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/main.kt" afterDir="false" />
     </list>
@@ -54,6 +66,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/ChristianCapa/KotlinCoroutines.git" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1bBRIOPYKWaz3xt12atZnOAefHb" />
   <component name="ProjectViewState">
@@ -88,6 +107,19 @@
   <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="Unnamed" type="JavascriptDebugType" nameIsGenerated="true">
       <method v="2" />
+    </configuration>
+    <configuration name="CoroutinesKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="Coroutines" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="main.CoroutinesKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="CoroutinesKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="Coroutines" />
@@ -133,10 +165,12 @@
       <item itemvalue="Kotlin.CoroutinesKt" />
       <item itemvalue="Kotlin.MainKt" />
       <item itemvalue="Kotlin.StartingCoroutinesKt" />
+      <item itemvalue="Kotlin.CoroutinesKt (1)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Kotlin.CoroutinesKt (1)" />
         <item itemvalue="Kotlin.CoroutinesKt" />
         <item itemvalue="Kotlin.StartingCoroutinesKt" />
       </list>
@@ -198,6 +232,11 @@
       <workItem from="1594487162518" duration="2766000" />
       <workItem from="1594492819881" duration="5898000" />
       <workItem from="1594550869310" duration="3414000" />
+      <workItem from="1594585964861" duration="6246000" />
+      <workItem from="1594630469758" duration="14322000" />
+      <workItem from="1594657564788" duration="2219000" />
+      <workItem from="1594799611302" duration="4456000" />
+      <workItem from="1594831732076" duration="4629000" />
     </task>
     <servers />
   </component>
@@ -261,22 +300,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.-1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
-    <state width="1877" height="270" key="GridCell.Tab.0.bottom" timestamp="1594558080006">
+    <state width="1877" height="388" key="GridCell.Tab.0.bottom" timestamp="1594836363515">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
-    <state width="1877" height="270" key="GridCell.Tab.0.center" timestamp="1594558080006">
+    <state width="1877" height="388" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594836363515" />
+    <state width="1877" height="388" key="GridCell.Tab.0.center" timestamp="1594836363514">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
-    <state width="1877" height="270" key="GridCell.Tab.0.left" timestamp="1594558080006">
+    <state width="1877" height="388" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594836363514" />
+    <state width="1877" height="388" key="GridCell.Tab.0.left" timestamp="1594836363514">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
-    <state width="1877" height="270" key="GridCell.Tab.0.right" timestamp="1594558080006">
+    <state width="1877" height="388" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594836363514" />
+    <state width="1877" height="388" key="GridCell.Tab.0.right" timestamp="1594836363514">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="270" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594558080006" />
+    <state width="1877" height="388" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594836363514" />
     <state width="1877" height="285" key="GridCell.Tab.1.bottom" timestamp="1593864553463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -305,6 +344,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="139" y="452" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1591614904100" />
+    <state x="769" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594836024166">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594836024166" />
     <state x="154" y="196" key="new project wizard" timestamp="1588108417384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

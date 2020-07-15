@@ -336,14 +336,7 @@ class Sudoku {
         }
         mapOfPossibleEntries.remove(startingPoint)
 
-        for (sudoku in deleteableSudokus) {
-            sudokus.remove(sudoku)
-        }
-        for (sudoku in addableSudokus) {
-            sudokus.add(sudoku)
-        }
-        deleteableSudokus.clear()
-        addableSudokus.clear()
+        clearAll()
 
         for (sudoku in sudokus) {
             sudoku.printSudoku()
@@ -451,43 +444,50 @@ class Sudoku {
     }
 
 
-    //functions for coroutines
+    /*
+    -----------------------------------------------------------------------------------------------------------------
+    functions for coroutines
+    -----------------------------------------------------------------------------------------------------------------
+    */
+    //
 
 
-    private suspend fun recursiveMeasuringCoroutines(recursion: Boolean = false): Boolean {
-        println(mapOfPossibleEntries)
-        val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
-        if (sudokus.size == 0) {
-            val job = GlobalScope.launch(Dispatchers.Default) {
-                measureCoroutines(startingPoint, newSudoku())
+    suspend fun measureWithCoroutines() {
+        val job = GlobalScope.launch {
+            while (lowestEmptyCounter > 0) {
+                if (calcWithCoroutines()) {
+                    break
+                }
             }
-            job.join()
+        }
+        job.join()
+    }
+
+
+    private suspend fun calcWithCoroutines(recursion: Boolean = false): Boolean {
+        val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
+        val jobList = arrayListOf<Job>()
+        val myCoroutineScope = CoroutineScope(Dispatchers.Default)
+        if (sudokus.size == 0) {
+            measureCoroutines(startingPoint, newSudoku())
         } else {
             for (sudoku in sudokus) {
-                val job = GlobalScope.launch(Dispatchers.Default) {
-                    //println("Current Thread:   ${Thread.currentThread().name}")
+                val job = myCoroutineScope.launch { //println("Current Thread:   ${Thread.currentThread().name}")
                     measureCoroutines(startingPoint, sudoku)
-                    deleteableSudokus.add(sudoku)
+                    deleteFromList(sudoku)
                 }
-                job.join()
+                jobList.add(job)
             }
+            jobList.joinAll()
         }
         mapOfPossibleEntries.remove(startingPoint)
 
-        for (sudoku in deleteableSudokus) {
-            sudokus.remove(sudoku)
-        }
-        for (sudoku in addableSudokus) {
-            sudokus.add(sudoku)
-        }
-        deleteableSudokus.clear()
-        addableSudokus.clear()
+        clearAll()
 
         for (sudoku in sudokus) {
             sudoku.printSudoku()
             sudoku.emptyCounter(withPrintLn = true)
         }
-
         if (recursion && lowestEmptyCounter > 0) {
             recursiveMeasuring(recursion = true)
         }
@@ -499,32 +499,55 @@ class Sudoku {
 
 
     private suspend fun measureCoroutines(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?) {
-        for (i in 0 until (mapOfPossibleEntries.values.elementAt(0).size)) {
-            val deffered = GlobalScope.async {
-                val sudoku: Sudoku? = newSudoku(sudokuCopy)
-                if (sudoku != null) {
-                    val successful = sudoku.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
-                    if (successful) {
-                        addableSudokus.add(sudoku)
-                        setLowestEmptyCounter(sudoku.emptyCounter())
-                    }
-                }
+        val myCoroutineScope = CoroutineScope(Dispatchers.Default)
+        val deferredList = arrayListOf<Deferred<Unit>>()
+        val x = mapOfPossibleEntries[startingPoint]?.size ?: 0
+
+        for (i in 0 until x) {
+            val deferred = myCoroutineScope.async { //println("Current Thread:   ${Thread.currentThread().name}")
+                calcAsync(startingPoint, sudokuCopy, i)
             }
-            deffered.await()
+            deferredList.add(deferred)
+        }
+        deferredList.forEach { it.await() }
+    }
+
+
+    private suspend fun calcAsync(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?, i: Int) {
+        val sudoku: Sudoku? = newSudoku(sudokuCopy)
+        if (sudoku != null) {
+            val successful = sudoku.setField(startingPoint.component1(), startingPoint.component2(), mapOfPossibleEntries[startingPoint]!!.elementAt(i))
+            if (successful) {
+                addToList(sudoku)
+                setLowestEmptyCounter(sudoku.emptyCounter())
+            }
         }
     }
 
 
-    suspend fun measureWithCoroutines() {
-        val job = GlobalScope.launch {
-            while (lowestEmptyCounter > 0) {
-                if(recursiveMeasuringCoroutines()) {
-                    break
-                }
-            }
-        }
-        job.join()
+    @Synchronized
+    private fun addToList(sudoku: Sudoku) {
+        addableSudokus.add(sudoku)
     }
+
+
+    @Synchronized
+    private fun deleteFromList(sudoku: Sudoku) {
+        deleteableSudokus.add(sudoku)
+    }
+
+
+    private fun clearAll() {
+        for (sudoku in deleteableSudokus) {
+            sudokus.remove(sudoku)
+        }
+        for (sudoku in addableSudokus) {
+            sudokus.add(sudoku)
+        }
+        deleteableSudokus.clear()
+        addableSudokus.clear()
+    }
+
 }
 
 
