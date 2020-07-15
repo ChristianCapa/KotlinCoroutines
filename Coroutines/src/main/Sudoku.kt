@@ -324,8 +324,8 @@ class Sudoku {
 
 
     fun recursiveMeasuring(recursion: Boolean = false): Boolean {
-        //println(mapOfPossibleEntries)
         val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
+
         if (sudokus.size == 0) {
             measure(startingPoint, newSudoku())
         } else {
@@ -342,7 +342,6 @@ class Sudoku {
             sudoku.printSudoku()
             sudoku.emptyCounter(withPrintLn = true)
         }
-
         if (recursion && lowestEmptyCounter > 0) {
             recursiveMeasuring(recursion = true)
         }
@@ -455,7 +454,7 @@ class Sudoku {
     suspend fun measureWithCoroutines() {
         val job = GlobalScope.launch {
             while (lowestEmptyCounter > 0) {
-                if (calcWithCoroutines()) {
+                if (sudokuWithCoroutines()) {
                     break
                 }
             }
@@ -464,16 +463,17 @@ class Sudoku {
     }
 
 
-    private suspend fun calcWithCoroutines(recursion: Boolean = false): Boolean {
+    private suspend fun sudokuWithCoroutines(recursion: Boolean = false): Boolean {
         val startingPoint = mapOfPossibleEntries.keys.elementAt(0)
         val jobList = arrayListOf<Job>()
         val myCoroutineScope = CoroutineScope(Dispatchers.Default)
+
         if (sudokus.size == 0) {
-            measureCoroutines(startingPoint, newSudoku())
+            initiateAsyncMeasuring(startingPoint, newSudoku())
         } else {
             for (sudoku in sudokus) {
                 val job = myCoroutineScope.launch { //println("Current Thread:   ${Thread.currentThread().name}")
-                    measureCoroutines(startingPoint, sudoku)
+                    initiateAsyncMeasuring(startingPoint, sudoku)
                     deleteFromList(sudoku)
                 }
                 jobList.add(job)
@@ -498,7 +498,7 @@ class Sudoku {
     }
 
 
-    private suspend fun measureCoroutines(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?) {
+    private suspend fun initiateAsyncMeasuring(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?) {
         val myCoroutineScope = CoroutineScope(Dispatchers.Default)
         val deferredList = arrayListOf<Deferred<Unit>>()
         val x = mapOfPossibleEntries[startingPoint]?.size ?: 0

@@ -96,18 +96,18 @@ fun main(args: Array<String>) {
 
 
         //recursion
-        /*
+        ///*
         val startTimeRecursion = System.currentTimeMillis()
 
         sudoku.recursiveMeasuring(recursion = true)
         println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
 
         val endTimeRecursion = System.currentTimeMillis()
-        */
+        //*/
 
 
         println("Time Taken (coroutines) ${endTimeCoroutines - startTimeCoroutines}")
-        //println("Time Taken (recursion) ${endTimeRecursion - startTimeRecursion}")
+        println("Time Taken (recursion) ${endTimeRecursion - startTimeRecursion}")
     }
 }
 
