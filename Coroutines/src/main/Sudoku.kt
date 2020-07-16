@@ -339,7 +339,7 @@ class Sudoku {
         clearAll()
 
         for (sudoku in sudokus) {
-            sudoku.printSudoku()
+            //sudoku.printSudoku()
             sudoku.emptyCounter(withPrintLn = true)
         }
         if (recursion && lowestEmptyCounter > 0) {
@@ -452,7 +452,7 @@ class Sudoku {
 
 
     suspend fun measureWithCoroutines() {
-        val job = GlobalScope.launch {
+        val job = CoroutineScope(Dispatchers.Default).launch {
             while (lowestEmptyCounter > 0) {
                 if (sudokuWithCoroutines()) {
                     break
@@ -485,7 +485,7 @@ class Sudoku {
         clearAll()
 
         for (sudoku in sudokus) {
-            sudoku.printSudoku()
+            //sudoku.printSudoku()
             sudoku.emptyCounter(withPrintLn = true)
         }
         if (recursion && lowestEmptyCounter > 0) {
@@ -501,7 +501,7 @@ class Sudoku {
     private suspend fun initiateAsyncMeasuring(startingPoint: ArrayList<Int>, sudokuCopy: Sudoku?) {
         val myCoroutineScope = CoroutineScope(Dispatchers.Default)
         val deferredList = arrayListOf<Deferred<Unit>>()
-        val x = mapOfPossibleEntries[startingPoint]?.size ?: 0
+        val x = mapOfPossibleEntries[startingPoint]?.size   ?: 0
 
         for (i in 0 until x) {
             val deferred = myCoroutineScope.async { //println("Current Thread:   ${Thread.currentThread().name}")

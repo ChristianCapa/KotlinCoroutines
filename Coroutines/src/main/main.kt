@@ -1,48 +1,12 @@
 package main
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.ReceiveChannel
 
 fun main(args: Array<String>) {
 
     val sudoku = Sudoku()
 
-// easy
-/*
-    sudoku.setField(1, 1, 5)
-    sudoku.setField(1, 2, 6)
-    sudoku.setField(1, 4, 8)
-    sudoku.setField(1, 5, 4)
-    sudoku.setField(1, 6, 7)
-    sudoku.setField(2, 1, 3)
-    sudoku.setField(2, 3, 9)
-    sudoku.setField(2, 7, 6)
-    sudoku.setField(3, 3, 8)
-    sudoku.setField(4, 2, 1)
-    sudoku.setField(4, 5, 8)
-    sudoku.setField(4, 8, 4)
-    sudoku.setField(5, 1, 7)
-    sudoku.setField(5, 2, 9)
-    sudoku.setField(5, 4, 6)
-    sudoku.setField(5, 6, 2)
-    sudoku.setField(5, 8, 1)
-    sudoku.setField(5, 9, 8)
-    sudoku.setField(6, 2, 5)
-    sudoku.setField(6, 5, 3)
-    sudoku.setField(6, 8, 9)
-    sudoku.setField(7, 7, 2)
-    sudoku.setField(8, 3, 6)
-    sudoku.setField(8, 7, 8)
-    sudoku.setField(8, 9, 7)
-    sudoku.setField(9, 4, 3)
-    sudoku.setField(9, 5, 1)
-    sudoku.setField(9, 6, 6)
-    sudoku.setField(9, 8, 5)
-    sudoku.setField(9, 9, 9)
-*/
-
-
-// hard
-///*
     sudoku.setField(1, 1, 6)
     sudoku.setField(1, 7, 2)
     sudoku.setField(2, 2, 5)
@@ -69,56 +33,107 @@ fun main(args: Array<String>) {
     sudoku.setField(8, 8, 9)
     sudoku.setField(9, 3, 8)
     sudoku.setField(9, 9, 1)
-//*/
 
+    //first round
     val sudokuCoroutines: Sudoku = sudoku.newSudoku(sudoku)
 
-    //to set up the sudoku
+    //second round
+    val sudokuCoroutines1: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuCoroutines2: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuRecursion1: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuRecursion2: Sudoku = sudoku.newSudoku(sudoku)
+
+
+    //third round
+    val sudokuCoroutines3: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuCoroutines4: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuCoroutines5: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuRecursion3: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuRecursion4: Sudoku = sudoku.newSudoku(sudoku)
+    val sudokuRecursion5: Sudoku = sudoku.newSudoku(sudoku)
+
+
+    //to set up the sudokus
     var iterator = 0
     while (iterator < 5) {
         sudoku.iterateFields()
         sudokuCoroutines.iterateFields()
-        sudoku.printSudoku()
-        sudokuCoroutines.printSudoku()
+        sudokuCoroutines1.iterateFields()
+        sudokuCoroutines2.iterateFields()
+        sudokuRecursion1.iterateFields()
+        sudokuRecursion2.iterateFields()
+        sudokuCoroutines3.iterateFields()
+        sudokuCoroutines4.iterateFields()
+        sudokuCoroutines5.iterateFields()
+        sudokuRecursion3.iterateFields()
+        sudokuRecursion4.iterateFields()
+        sudokuRecursion5.iterateFields()
         iterator++
     }
 
 
     if (sudoku.emptyCounter(withPrintLn = true) != 0) {
+
         //with coroutines
-        ///*
         val startTimeCoroutines = System.currentTimeMillis()
-
         runWithCoroutines(sudokuCoroutines)
-
         val endTimeCoroutines = System.currentTimeMillis()
-        //*/
 
 
         //recursion
-        ///*
         val startTimeRecursion = System.currentTimeMillis()
-
         sudoku.recursiveMeasuring(recursion = true)
-        println("iteration finished\n\n${sudoku.getMapOfPossibilities()}\n${sudoku.getMapOfPossibilities().size}")
-
         val endTimeRecursion = System.currentTimeMillis()
-        //*/
 
 
-        println("Time Taken (coroutines) ${endTimeCoroutines - startTimeCoroutines}")
-        println("Time Taken (recursion) ${endTimeRecursion - startTimeRecursion}")
+        //two sudokus coroutines
+        val startTimeCoroutines2 = System.currentTimeMillis()
+        runMultipleWithCoroutines(arrayListOf(sudokuCoroutines1, sudokuCoroutines2))
+        val endTimeCoroutines2 = System.currentTimeMillis()
+
+
+        //two sudokus recursion
+        val startTimeRecursion2 = System.currentTimeMillis()
+        sudokuRecursion1.recursiveMeasuring(recursion = true)
+        sudokuRecursion2.recursiveMeasuring(recursion = true)
+        val endTimeRecursion2 = System.currentTimeMillis()
+
+
+        //three sudokus coroutines
+        val startTimeCoroutines3 = System.currentTimeMillis()
+        runMultipleWithCoroutines(arrayListOf(sudokuCoroutines3, sudokuCoroutines4, sudokuCoroutines5))
+        val endTimeCoroutines3 = System.currentTimeMillis()
+
+
+        //three sudokus recursion
+        val startTimeRecursion3 = System.currentTimeMillis()
+        sudokuRecursion3.recursiveMeasuring(recursion = true)
+        sudokuRecursion4.recursiveMeasuring(recursion = true)
+        sudokuRecursion5.recursiveMeasuring(recursion = true)
+        val endTimeRecursion3 = System.currentTimeMillis()
+
+
+        //timer
+        println("Time Taken (coroutines): ${(endTimeCoroutines - startTimeCoroutines) / 1000.0} seconds")
+        println("Time Taken (recursion): ${(endTimeRecursion - startTimeRecursion) / 1000.0} seconds\n")
+        println("Time Taken (two sudokus coroutines): ${(endTimeCoroutines2 - startTimeCoroutines2) / 1000.0} seconds")
+        println("Time Taken (two sudokus recursion): ${(endTimeRecursion2 - startTimeRecursion2) / 1000.0} seconds\n")
+        println("Time Taken (three sudokus coroutines): ${(endTimeCoroutines3 - startTimeCoroutines3) / 1000.0} seconds")
+        println("Time Taken (three sudokus recursion): ${(endTimeRecursion3 - startTimeRecursion3) / 1000.0} seconds")
     }
 }
 
 
 fun runWithCoroutines(sudoku: Sudoku) = runBlocking {
-    println("Measuring started.")
-
     sudoku.measureWithCoroutines()
-
-    println("Measuring ended.")
 }
 
 
-
+fun runMultipleWithCoroutines(sudokuList: ArrayList<Sudoku>) = runBlocking {
+    val jobList = arrayListOf<Job>()
+    sudokuList.forEach {
+        val job = launch { it.measureWithCoroutines() }
+        jobList.add(job)
+    }
+    jobList.joinAll()
+}
