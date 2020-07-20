@@ -147,14 +147,14 @@ class Sudoku {
         getNinth(xPos + 1, yPos + 1)?.second?.put(arrayListOf(xPos, yPos), possibleEntriesAtPos)
         setPossibleEntries(possibleEntriesAtPos, xPos, yPos)
 
-        /*
+
         println("\n\n\nSudoku at position: ${xPos + 1} | ${yPos + 1}")
         Helper.printObject("xRow", array = xRow)
         Helper.printObject("yRow", array = yRow)
         Helper.printObject("possibleEntriesX", arrayList = possibleEntriesX)
         Helper.printObject("possibleEntriesY", arrayList = possibleEntriesY)
         Helper.printObject("possibleEntriesAtPos", set = possibleEntriesAtPos)
-        */
+
     }
 
 

@@ -20,9 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d514ea4-e07c-4974-9099-7973f6e1bdc9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/main/F.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/main/FImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/main/Result.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Coroutines/src/main/mainDemo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/META-INF/Coroutines.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Helper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runMultipleWithCoroutines$1$1$job$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runMultipleWithCoroutines$1$1$job$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runMultipleWithCoroutines$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runMultipleWithCoroutines$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runWithCoroutines$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt$runWithCoroutines$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/MainKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/out/production/Coroutines/main/Sudoku.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Helper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Helper.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/Sudoku.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Coroutines/src/main/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Coroutines/src/main/main.kt" afterDir="false" />
     </list>
@@ -121,6 +131,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainDemoKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="Coroutines" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="main.MainDemoKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="Coroutines" />
       <option name="VM_PARAMETERS" value="" />
@@ -153,10 +176,12 @@
       <item itemvalue="Kotlin.MainKt" />
       <item itemvalue="Kotlin.StartingCoroutinesKt" />
       <item itemvalue="Kotlin.CoroutinesKt (1)" />
+      <item itemvalue="Kotlin.MainDemoKt" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Kotlin.MainDemoKt" />
         <item itemvalue="Kotlin.CoroutinesKt (1)" />
         <item itemvalue="Kotlin.CoroutinesKt" />
         <item itemvalue="Kotlin.StartingCoroutinesKt" />
@@ -231,6 +256,14 @@
       <workItem from="1594846015842" duration="17000" />
       <workItem from="1594846047855" duration="2107000" />
       <workItem from="1594902376355" duration="6683000" />
+      <workItem from="1594915780028" duration="954000" />
+      <workItem from="1594994949875" duration="824000" />
+      <workItem from="1594996691698" duration="3616000" />
+      <workItem from="1595025580196" duration="1120000" />
+      <workItem from="1595076850063" duration="3784000" />
+      <workItem from="1595150633233" duration="10111000" />
+      <workItem from="1595185866382" duration="3387000" />
+      <workItem from="1595234172269" duration="4220000" />
     </task>
     <servers />
   </component>
@@ -262,6 +295,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="243" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588105076312" />
+    <state x="364" y="239" key="#com.intellij.ide.util.MemberChooser" timestamp="1595188423665">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="364" y="239" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595188423665" />
     <state x="551" y="302" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590867019354">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -294,22 +331,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="285" key="GridCell.Tab.-1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593864646832" />
-    <state width="1877" height="314" key="GridCell.Tab.0.bottom" timestamp="1594915707417">
+    <state width="1877" height="391" key="GridCell.Tab.0.bottom" timestamp="1595238595711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594915707417" />
-    <state width="1877" height="314" key="GridCell.Tab.0.center" timestamp="1594915707417">
+    <state width="1877" height="391" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595238595711" />
+    <state width="1877" height="391" key="GridCell.Tab.0.center" timestamp="1595238595711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594915707417" />
-    <state width="1877" height="314" key="GridCell.Tab.0.left" timestamp="1594915707417">
+    <state width="1877" height="391" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595238595711" />
+    <state width="1877" height="391" key="GridCell.Tab.0.left" timestamp="1595238595711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594915707417" />
-    <state width="1877" height="314" key="GridCell.Tab.0.right" timestamp="1594915707417">
+    <state width="1877" height="391" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595238595711" />
+    <state width="1877" height="391" key="GridCell.Tab.0.right" timestamp="1595238595711">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="314" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594915707417" />
+    <state width="1877" height="391" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595238595711" />
     <state width="1877" height="285" key="GridCell.Tab.1.bottom" timestamp="1593864553463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

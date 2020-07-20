@@ -1,7 +1,6 @@
 package main
 
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.ReceiveChannel
 
 fun main(args: Array<String>) {
 
@@ -114,12 +113,13 @@ fun main(args: Array<String>) {
 
 
         //timer
-        println("Time Taken (coroutines): ${(endTimeCoroutines - startTimeCoroutines) / 1000.0} seconds")
-        println("Time Taken (recursion): ${(endTimeRecursion - startTimeRecursion) / 1000.0} seconds\n")
-        println("Time Taken (two sudokus coroutines): ${(endTimeCoroutines2 - startTimeCoroutines2) / 1000.0} seconds")
-        println("Time Taken (two sudokus recursion): ${(endTimeRecursion2 - startTimeRecursion2) / 1000.0} seconds\n")
-        println("Time Taken (three sudokus coroutines): ${(endTimeCoroutines3 - startTimeCoroutines3) / 1000.0} seconds")
-        println("Time Taken (three sudokus recursion): ${(endTimeRecursion3 - startTimeRecursion3) / 1000.0} seconds")
+        println("Slow measuring at the first part can occur due to a cpu delay\n")
+        println("Time Taken (1 sudoku, coroutines): ${(endTimeCoroutines - startTimeCoroutines) / 1000.0} seconds")
+        println("Time Taken (1 sudoku, recursion): ${(endTimeRecursion - startTimeRecursion) / 1000.0} seconds\n")
+        println("Time Taken (2 sudokus, coroutines): ${(endTimeCoroutines2 - startTimeCoroutines2) / 1000.0} seconds")
+        println("Time Taken (2 sudokus, recursion): ${(endTimeRecursion2 - startTimeRecursion2) / 1000.0} seconds\n")
+        println("Time Taken (3 sudokus, coroutines): ${(endTimeCoroutines3 - startTimeCoroutines3) / 1000.0} seconds")
+        println("Time Taken (3 sudokus, recursion): ${(endTimeRecursion3 - startTimeRecursion3) / 1000.0} seconds")
     }
 }
 

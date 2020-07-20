@@ -3,7 +3,9 @@ package main
 
 object Helper {
 
-    fun printObject(name: String, arrayList: ArrayList<Int>? = null, array: Array<Int>? = null, set: Set<Int>? = null) {
+    fun printObject(name: String, arrayList: ArrayList<Int>? = null,
+                    array: Array<Int>? = null, set: Set<Int>? = null) {
+
         println("\n$name")
         when {
             arrayList != null -> arrayList.forEach { value ->
